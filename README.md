@@ -169,29 +169,108 @@ All 29 components from Figma, each with **React (.tsx)**, **Vue (.vue)**, and **
 
 ## Installation
 
+### GitHub Copilot (Recommended — One-Click Install)
+
+**方式 A：运行安装脚本（推荐）**
+
+```powershell
+# Windows PowerShell — 在你的项目根目录执行：
+git clone https://github.com/zengwenju/ui-ux-lenovo-skill.git _temp_skill
+powershell -File _temp_skill/scripts/install-copilot.ps1
+Remove-Item _temp_skill -Recurse -Force
+```
+
+```bash
+# macOS / Linux — 在你的项目根目录执行：
+git clone https://github.com/zengwenju/ui-ux-lenovo-skill.git _temp_skill
+bash _temp_skill/scripts/install-copilot.sh
+rm -rf _temp_skill
+```
+
+安装后你的项目会自动获得：
+
+```
+your-project/
+├── .github/
+│   ├── copilot-instructions.md          # 自动加载的规则
+│   ├── skills/
+│   │   └── cake-design-system/
+│   │       ├── SKILL.md                 # Skill 定义（Copilot 自动识别）
+│   │       ├── data/                    # 搜索引擎数据
+│   │       ├── scripts/                 # BM25 搜索
+│   │       ├── templates/               # 29 组件模板
+│   │       └── references/              # Figma 源数据
+│   └── prompts/
+│       ├── cake-component.prompt.md     # /cake-component 命令
+│       ├── cake-review.prompt.md        # /cake-review 命令
+│       └── cake-tokens.prompt.md        # /cake-tokens 命令
+└── cake-tokens.css                      # CSS Variables 文件
+```
+
+**方式 B：手动安装**
+
+```bash
+# 1. Clone skill
+git clone https://github.com/zengwenju/ui-ux-lenovo-skill.git
+
+# 2. 复制 skill 到 .github/skills/
+mkdir -p .github/skills/cake-design-system
+cp -r ui-ux-lenovo-skill/SKILL.md .github/skills/cake-design-system/
+cp -r ui-ux-lenovo-skill/data .github/skills/cake-design-system/
+cp -r ui-ux-lenovo-skill/scripts .github/skills/cake-design-system/
+cp -r ui-ux-lenovo-skill/templates .github/skills/cake-design-system/
+cp -r ui-ux-lenovo-skill/references .github/skills/cake-design-system/
+
+# 3. 复制 prompt 文件（启用 / 斜杠命令）
+mkdir -p .github/prompts
+cp ui-ux-lenovo-skill/prompts/*.prompt.md .github/prompts/
+
+# 4. 复制 copilot instructions
+cp ui-ux-lenovo-skill/.github/copilot-instructions.md .github/
+
+# 5. 复制 CSS tokens
+cp ui-ux-lenovo-skill/templates/cake-tokens.css src/styles/
+```
+
+**方式 C：告诉 Copilot 自动安装**
+
+在 Copilot Chat 中输入：
+
+```
+安装 Cake Design System skill：
+1. git clone https://github.com/zengwenju/ui-ux-lenovo-skill.git _temp
+2. 将 _temp/SKILL.md 复制到 .github/skills/cake-design-system/SKILL.md
+3. 将 _temp/prompts/*.prompt.md 复制到 .github/prompts/
+4. 将 _temp/.github/copilot-instructions.md 复制到 .github/
+5. 将 _temp/data/ _temp/scripts/ _temp/templates/ _temp/references/ 复制到 .github/skills/cake-design-system/ 下
+6. 将 _temp/templates/cake-tokens.css 复制到 src/styles/
+7. 删除 _temp
+```
+
+### Copilot Slash Commands
+
+安装完成后，在 Copilot Chat 中可以使用以下 `/` 命令：
+
+| 命令 | 说明 |
+|------|------|
+| `/cake-component` | 生成 Cake 组件（React/Vue/HTML） |
+| `/cake-review` | 审查代码是否符合 Cake 规范 |
+| `/cake-tokens` | 查询 Token 值和用法 |
+
 ### Claude Code
 
 ```bash
 # Clone into your project's skill directory
-git clone <your-gitlab-url> .claude/skills/ui-ux-lenovo-skill
-
-# Or copy manually
-cp -r skills/ui-ux-lenovo-skill .claude/skills/
+git clone https://github.com/zengwenju/ui-ux-lenovo-skill.git .claude/skills/ui-ux-lenovo-skill
 ```
 
 ### Cursor
 
 ```bash
 # Copy the .cursorrules to your project root
-cp skills/ui-ux-lenovo-skill/.cursorrules .cursorrules
-```
-
-### GitHub Copilot
-
-```bash
-# Copy the copilot instructions
-mkdir -p .github
-cp skills/ui-ux-lenovo-skill/.github/copilot-instructions.md .github/copilot-instructions.md
+git clone https://github.com/zengwenju/ui-ux-lenovo-skill.git _temp
+cp _temp/.cursorrules .cursorrules
+rm -rf _temp
 ```
 
 ### All Platforms — Include Tokens CSS
@@ -288,19 +367,25 @@ python scripts/search.py "modal confirm"
 
 ```
 skills/ui-ux-lenovo-skill/
-├── SKILL.md                            # Core constraint rules (read by AI tools)
+├── SKILL.md                            # Core constraint rules (with YAML frontmatter)
 ├── README.md                           # ← You are here
 ├── .cursorrules                        # Cursor adapter
 ├── .github/
-│   └── copilot-instructions.md         # Copilot adapter
+│   └── copilot-instructions.md         # Copilot auto-loaded instructions
+├── prompts/                            # Copilot slash commands
+│   ├── cake-component.prompt.md        # /cake-component — generate components
+│   ├── cake-review.prompt.md           # /cake-review — code compliance review
+│   └── cake-tokens.prompt.md           # /cake-tokens — token lookup
 ├── data/                               # BM25-searchable knowledge base
 │   ├── cake-colors.csv                 # 33 colors with semantic roles
 │   ├── cake-components.csv             # 90+ component-variant token specs
 │   ├── cake-typography.csv             # 39 typography styles
 │   └── cake-spacing.csv               # Spacing, radius, shadow scales
-├── scripts/                            # Search engine
+├── scripts/                            # Tools
 │   ├── core.py                         # BM25 algorithm
-│   └── search.py                       # CLI search tool
+│   ├── search.py                       # CLI search tool
+│   ├── install-copilot.ps1             # Windows installer
+│   └── install-copilot.sh              # macOS/Linux installer
 ├── templates/                          # Ready-to-use code
 │   ├── cake-tokens.css                 # Complete CSS variable file
 │   └── components/                     # 29 components × 3 frameworks
@@ -354,13 +439,13 @@ skills/ui-ux-lenovo-skill/
 
 ## Supported Platforms
 
-| Platform | Install Method | Auto-Activate |
-|----------|---------------|---------------|
-| **Claude Code** | `.claude/skills/` directory | ✅ Yes |
-| **Cursor** | `.cursorrules` in project root | ✅ Yes |
-| **GitHub Copilot** | `.github/copilot-instructions.md` | ✅ Yes |
-| **VS Code + Copilot Chat** | Reference SKILL.md in chat | Manual |
-| **Any AI** | Paste SKILL.md content as system prompt | Manual |
+| Platform | Install Method | Auto-Activate | Slash Commands |
+|----------|---------------|---------------|----------------|
+| **GitHub Copilot** | `install-copilot.ps1` / `.sh` | ✅ Yes | `/cake-component` `/cake-review` `/cake-tokens` |
+| **Claude Code** | `.claude/skills/` directory | ✅ Yes | — |
+| **Cursor** | `.cursorrules` in project root | ✅ Yes | — |
+| **VS Code + Copilot Chat** | `.github/skills/` + `.github/prompts/` | ✅ Yes | `/cake-component` `/cake-review` `/cake-tokens` |
+| **Any AI** | Paste SKILL.md content as system prompt | Manual | — |
 
 ---
 

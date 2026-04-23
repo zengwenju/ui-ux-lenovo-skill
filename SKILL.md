@@ -1,3 +1,8 @@
+---
+name: cake-design-system
+description: "Use when: 实现任何 Lenovo 企业级 UI 组件。强制使用 Cake Design System 的 CSS Variables (--fdn-*, --sem-*), 29 个组件模板 (React/Vue/HTML), 260+ 设计 tokens。Enforce Cake Design System tokens for all UI code."
+---
+
 # Cake Design System Skill — Lenovo Enterprise UI
 
 > **Version**: 1.0.0
