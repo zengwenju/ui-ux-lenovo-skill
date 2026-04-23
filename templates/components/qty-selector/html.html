@@ -1,0 +1,23 @@
+<!-- Cake Design System — Qty Selector -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Qty Selector</title>
+<style>
+.cake-qty { display: inline-flex; align-items: center; border: 1px solid var(--sem-color-border); border-radius: var(--fdn-radius-radius-4); overflow: hidden; }
+.cake-qty--disabled { opacity: 0.5; pointer-events: none; }
+.cake-qty__btn { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; background: transparent; }
+.cake-qty__btn--disabled { background: var(--sem-color-bg-disabled); cursor: not-allowed; }
+.cake-qty__input { width: 48px; text-align: center; border: none; outline: none; border-left: 1px solid var(--sem-color-border); border-right: 1px solid var(--sem-color-border); }
+</style></head>
+<body>
+  <div class="cake-qty">
+    <button class="cake-qty__btn">−</button>
+    <input class="cake-qty__input" type="text" value="3" readonly />
+    <button class="cake-qty__btn">+</button>
+  </div>
+  <br><br>
+  <div class="cake-qty cake-qty--disabled">
+    <button class="cake-qty__btn cake-qty__btn--disabled">−</button>
+    <input class="cake-qty__input" type="text" value="0" readonly />
+    <button class="cake-qty__btn">+</button>
+  </div>
+</body></html>

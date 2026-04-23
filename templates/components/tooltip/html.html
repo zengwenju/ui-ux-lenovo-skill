@@ -1,0 +1,25 @@
+<!-- Cake Design System — Tooltip -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Tooltip</title>
+<style>
+.cake-tooltip { position: relative; display: inline-flex; margin: 40px; }
+.cake-tooltip__tip {
+  position: absolute; background: var(--fdn-color-palette-0f172a); color: var(--sem-color-text-inverse);
+  border-radius: var(--fdn-radius-radius-4); padding: var(--fdn-spacing-space-8) var(--fdn-spacing-space-12);
+  box-shadow: var(--fdn-shadow-shadow-1); font-size: 13px; white-space: nowrap; z-index: 100;
+  display: none;
+}
+.cake-tooltip:hover .cake-tooltip__tip { display: block; }
+.cake-tooltip__tip--top { bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 6px; }
+.cake-tooltip__tip--bottom { top: 100%; left: 50%; transform: translateX(-50%); margin-top: 6px; }
+</style></head>
+<body>
+  <span class="cake-tooltip">
+    <button>Hover me (top)</button>
+    <span class="cake-tooltip__tip cake-tooltip__tip--top">Tooltip on top</span>
+  </span>
+  <span class="cake-tooltip">
+    <button>Hover me (bottom)</button>
+    <span class="cake-tooltip__tip cake-tooltip__tip--bottom">Tooltip on bottom</span>
+  </span>
+</body></html>

@@ -1,0 +1,25 @@
+<!-- Cake Design System — Drawer -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Drawer</title>
+<style>
+.cake-drawer__scrim { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; }
+.cake-drawer {
+  position: fixed; top: 0; right: 0; width: 320px; height: 100%; z-index: 1001;
+  background: var(--sem-color-bg-surface); box-shadow: var(--fdn-shadow-shadow-5);
+  padding: var(--fdn-spacing-space-24); display: flex; flex-direction: column;
+}
+.cake-drawer--left { left: 0; right: auto; }
+.cake-drawer__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--fdn-spacing-space-16); }
+.cake-drawer__close { background: none; border: none; cursor: pointer; font-size: 18px; }
+.cake-drawer__body { flex: 1; overflow: auto; }
+</style></head>
+<body>
+  <div class="cake-drawer__scrim"></div>
+  <div class="cake-drawer">
+    <div class="cake-drawer__header">
+      <strong>Drawer Title</strong>
+      <button class="cake-drawer__close">&times;</button>
+    </div>
+    <div class="cake-drawer__body"><p>Drawer content here.</p></div>
+  </div>
+</body></html>

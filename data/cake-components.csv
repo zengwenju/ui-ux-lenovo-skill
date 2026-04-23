@@ -1,0 +1,92 @@
+Component,Category,Variant,State,Size,BG Token,Text Token,Border Token,Radius Token,Padding Token,Shadow Token,Font Token,Keywords
+Button,controls,filled,default,-,--sem-color-bg-brand,--sem-color-text-inverse,,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-16,,,button filled default primary
+Button,controls,filled,hover,-,--sem-color-interactive-primary-hover,--sem-color-text-inverse,,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-16,,,button filled hover primary blue
+Button,controls,filled,disabled,-,--sem-color-bg-disabled,--sem-color-text-disabled,,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-16,,,button filled disabled grey
+Button,controls,filled,success,-,--fdn-color-palette-047857,--sem-color-text-inverse,,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-16,,,button filled success green
+Button,controls,filled,error,-,--fdn-color-palette-b91c1c,--sem-color-text-inverse,,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-16,,,button filled error red danger
+Button,controls,outlined,default,-,,--sem-color-interactive-primary,--sem-color-border,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-16,,,button outlined default secondary border
+Button,controls,outlined,hover,-,,--sem-color-interactive-primary-hover,--sem-color-border-focus,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-16,,,button outlined hover secondary
+Button,controls,outlined,disabled,-,--sem-color-bg-disabled,--sem-color-text-disabled,--sem-color-border-disabled,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-16,,,button outlined disabled
+Button,controls,not-filled,default,-,,--sem-color-interactive-primary,,,,,,button text ghost tertiary
+Button,controls,not-filled,hover,-,--fdn-color-palette-f1f5f9,--sem-color-interactive-primary-hover,,,,,,button text ghost hover
+Checkbox,controls,-,unchecked,-,--sem-color-bg-primary,,--sem-color-border,--fdn-radius-radius-4,,,,checkbox unchecked default
+Checkbox,controls,-,checked,-,--sem-color-interactive-primary,--sem-color-text-inverse,,--fdn-radius-radius-4,,,,checkbox checked active
+Checkbox,controls,-,indeterminate,-,--sem-color-interactive-primary,--sem-color-text-inverse,,--fdn-radius-radius-4,,,,checkbox indeterminate partial
+Checkbox,controls,-,disabled,-,--sem-color-bg-disabled,--sem-color-text-disabled,--sem-color-border-disabled,--fdn-radius-radius-4,,,,checkbox disabled grey
+Radio,controls,-,unchecked,-,--sem-color-bg-primary,,--sem-color-border,--fdn-radius-radius-128,,,,radio unchecked default circle
+Radio,controls,-,checked,-,--sem-color-interactive-primary,--sem-color-text-inverse,,--fdn-radius-radius-128,,,,radio checked active selected
+Radio,controls,-,disabled,-,--sem-color-bg-disabled,,--sem-color-border-disabled,--fdn-radius-radius-128,,,,radio disabled grey
+Switch,controls,-,active,-,--sem-color-bg-brand,--sem-color-text-inverse,,--fdn-radius-radius-100,,,,switch segmented active selected
+Switch,controls,-,inactive,-,--sem-color-bg-secondary,--fdn-color-palette-0f172a,,--fdn-radius-radius-100,,,,switch segmented inactive
+Toggle,controls,-,on,-,--sem-color-interactive-primary,,,--fdn-radius-radius-128,,--fdn-shadow-shadow-3,,toggle on enabled boolean
+Toggle,controls,-,off,-,--sem-color-bg-secondary,,,--fdn-radius-radius-128,,--fdn-shadow-shadow-3,,toggle off disabled boolean
+Toggle,controls,-,disabled,-,--sem-color-bg-disabled,,,--fdn-radius-radius-128,,,,toggle disabled grey
+Card,data-display,vertical,default,-,--sem-color-bg-surface,,--sem-color-border,--fdn-radius-radius-8,--fdn-spacing-space-16,--fdn-shadow-shadow-1,,card vertical default
+Card,data-display,horizontal,default,-,--sem-color-bg-surface,,--sem-color-border,--fdn-radius-radius-8,--fdn-spacing-space-16,--fdn-shadow-shadow-1,,card horizontal default
+Card,data-display,compact,default,-,--sem-color-bg-surface,,--sem-color-border,--fdn-radius-radius-8,--fdn-spacing-space-12,--fdn-shadow-shadow-1,,card compact small
+Drawer,data-display,overlay,default,-,--sem-color-bg-surface,,,--fdn-radius-radius-0,--fdn-spacing-space-24,--fdn-shadow-shadow-5,,drawer overlay panel side
+Label,data-display,solid,default,-,--fdn-color-palette-1e3a8a,--sem-color-text-inverse,,--fdn-radius-radius-4,--fdn-spacing-space-4 --fdn-spacing-space-8,,,label tag solid badge blue
+Label,data-display,soft,default,-,--fdn-color-palette-e0f2fe,--fdn-color-palette-1e3a8a,,--fdn-radius-radius-4,--fdn-spacing-space-4 --fdn-spacing-space-8,,,label tag soft light
+Label,data-display,outline,default,-,,--fdn-color-palette-1e3a8a,--fdn-color-palette-1e3a8a,--fdn-radius-radius-4,--fdn-spacing-space-4 --fdn-spacing-space-8,,,label tag outline border
+Loading,data-display,progress,default,-,--sem-color-bg-secondary,,,--fdn-radius-radius-4,,,,loading progress bar indicator
+Loading,data-display,spinner,default,-,--sem-color-interactive-primary,,,,,,,loading spinner circle rotate
+Table,data-display,-,default,-,--sem-color-bg-primary,,--fdn-color-palette-e2e8f0,,--fdn-spacing-space-12 --fdn-spacing-space-16,,,table data grid default
+Table,data-display,-,header,-,--sem-color-bg-secondary,,--fdn-color-palette-e2e8f0,,--fdn-spacing-space-12 --fdn-spacing-space-16,,,table header row
+Table,data-display,-,hover,-,--fdn-color-palette-f1f5f9,,--fdn-color-palette-e2e8f0,,--fdn-spacing-space-12 --fdn-spacing-space-16,,,table row hover highlight
+Table,data-display,-,selected,-,--fdn-color-palette-dbeafe,,--fdn-color-palette-e2e8f0,,--fdn-spacing-space-12 --fdn-spacing-space-16,,,table row selected active
+Calendar,data-input,-,default,-,--sem-color-bg-surface,--fdn-color-palette-0f172a,,--fdn-radius-radius-4,,,,calendar date picker default
+Calendar,data-input,-,selected,-,--sem-color-bg-brand,--sem-color-text-inverse,,--fdn-radius-radius-4,,,,calendar date selected active
+Calendar,data-input,-,hover,-,--fdn-color-palette-f1f5f9,,,--fdn-radius-radius-4,,,,calendar date hover
+Calendar,data-input,-,today,-,,--sem-color-interactive-primary,--sem-color-interactive-primary,--fdn-radius-radius-4,,,,calendar today current
+Dropdown,data-input,-,default,-,--sem-color-bg-primary,,--sem-color-border,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-12,,,dropdown select default
+Dropdown,data-input,-,focus,-,--sem-color-bg-primary,,--sem-color-interactive-primary,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-12,,,dropdown select focus active
+Dropdown,data-input,-,error,-,--sem-color-bg-primary,,--sem-color-border-error,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-12,,,dropdown select error invalid
+Dropdown,data-input,-,disabled,-,--sem-color-bg-disabled,--sem-color-text-disabled,--sem-color-border-disabled,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-12,,,dropdown select disabled
+Dropdown,data-input,option,hover,-,--fdn-color-palette-f1f5f9,,,--fdn-radius-radius-4,,,,dropdown option hover
+Dropdown,data-input,option,selected,-,--fdn-color-palette-e0f2fe,,,--fdn-radius-radius-4,,,,dropdown option selected
+QtySelector,data-input,-,default,-,--sem-color-bg-primary,,--sem-color-border,--fdn-radius-radius-4,,,,qty selector input number default
+QtySelector,data-input,-,disabled,-,--sem-color-bg-disabled,,--sem-color-border-disabled,--fdn-radius-radius-4,,,,qty selector disabled
+Search,data-input,-,default,-,--sem-color-bg-primary,,--sem-color-border,--fdn-radius-radius-4,,,,search input field default
+Search,data-input,-,focus,-,--sem-color-bg-primary,,--sem-color-border-focus,--fdn-radius-radius-4,,,,search input focus active
+Slider,data-input,-,default,-,--sem-color-bg-secondary,,,,,--fdn-shadow-shadow-3,,slider range track default
+Slider,data-input,-,active,-,--sem-color-interactive-primary,,--sem-color-interactive-primary,,,--fdn-shadow-shadow-3,,slider range thumb active
+TextField,data-input,-,default,-,--sem-color-bg-primary,--fdn-color-palette-0f172a,--sem-color-border,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-12,,,input text field default
+TextField,data-input,-,focus,-,--sem-color-bg-primary,,--sem-color-border-focus,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-12,,,input text field focus
+TextField,data-input,-,error,-,--sem-color-bg-primary,,--sem-color-border-error,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-12,,,input text field error invalid
+TextField,data-input,-,disabled,-,--sem-color-bg-disabled,--sem-color-text-disabled,--sem-color-border-disabled,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-12,,,input text field disabled
+TextField,data-input,-,readonly,-,--sem-color-bg-secondary,,--sem-color-border,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-12,,,input text field readonly
+Tree,data-input,node,default,-,--sem-color-bg-primary,--fdn-color-palette-0f172a,,--fdn-radius-radius-4,,,,tree node item default
+Tree,data-input,node,hover,-,--fdn-color-palette-f1f5f9,,,--fdn-radius-radius-4,,,,tree node hover
+Tree,data-input,node,selected,-,--fdn-color-palette-e0f2fe,,,--fdn-radius-radius-4,,,,tree node selected active
+Uploader,data-input,drag,default,-,--sem-color-bg-primary,,--sem-color-border,,,,,uploader drag drop area default
+Uploader,data-input,drag,hover,-,,,,,,,,uploader drag hover active
+Badge,feedback,dot,info,-,--sem-color-interactive-primary,--sem-color-text-inverse,,--fdn-radius-radius-100,,,,badge dot info notification
+Badge,feedback,count,error,-,--sem-color-state-error,--sem-color-text-inverse,,--fdn-radius-radius-100,,,,badge count error red number
+Modal,feedback,confirm,default,-,--sem-color-bg-surface,--fdn-color-palette-0f172a,,--fdn-radius-radius-8,--fdn-spacing-space-24,--fdn-shadow-shadow-2,,modal dialog confirm default
+Modal,feedback,danger,default,-,--sem-color-bg-surface,--fdn-color-palette-0f172a,,--fdn-radius-radius-8,--fdn-spacing-space-24,--fdn-shadow-shadow-2,,modal dialog danger delete destructive
+Toast,feedback,-,info,-,--sem-color-state-info,--fdn-color-palette-0f172a,,--fdn-radius-radius-8,--fdn-spacing-space-16,--fdn-shadow-shadow-1,,toast message info notification
+Toast,feedback,-,success,-,--sem-color-state-success,--fdn-color-palette-0f172a,,--fdn-radius-radius-8,--fdn-spacing-space-16,--fdn-shadow-shadow-1,,toast message success green
+Toast,feedback,-,error,-,--sem-color-state-error-light,--fdn-color-palette-0f172a,,--fdn-radius-radius-8,--fdn-spacing-space-16,--fdn-shadow-shadow-1,,toast message error red
+Toast,feedback,-,warning,-,--sem-color-state-warning,--fdn-color-palette-0f172a,,--fdn-radius-radius-8,--fdn-spacing-space-16,--fdn-shadow-shadow-1,,toast message warning orange
+Tooltip,feedback,-,default,-,--fdn-color-palette-0f172a,--sem-color-text-inverse,,--fdn-radius-radius-4,--fdn-spacing-space-8 --fdn-spacing-space-12,--fdn-shadow-shadow-1,,tooltip popover dark hover help
+Accordion,navigations,-,default,-,--sem-color-bg-primary,,--fdn-color-palette-e2e8f0,,--fdn-spacing-space-16,,,accordion collapse expand default
+Accordion,navigations,-,hover,-,--fdn-color-palette-f1f5f9,,--fdn-color-palette-e2e8f0,,--fdn-spacing-space-16,,,accordion hover highlight
+Breadcrumb,navigations,-,default,-,,--sem-color-text-link,,,,,,breadcrumb trail path navigation
+Breadcrumb,navigations,-,hover,-,,--sem-color-text-link-hover,,,,,,breadcrumb hover link
+Breadcrumb,navigations,-,current,-,,--sem-color-text-secondary,,,,,,breadcrumb current active last
+Footer,navigations,-,light,-,--sem-color-bg-primary,,,,--fdn-spacing-space-80,,,footer light bottom section
+Footer,navigations,-,dark,-,--fdn-color-palette-0f172a,--sem-color-text-inverse,,,,,,footer dark bottom section
+Navbar,navigations,-,default,-,--sem-color-bg-surface,,--fdn-color-palette-e2e8f0,,,,,,navbar header top navigation bar
+Navbar,navigations,menu-item,default,-,,--fdn-color-palette-0f172a,,,,,,navbar menu item default
+Navbar,navigations,menu-item,hover,-,,--sem-color-interactive-primary-hover,,,,,,navbar menu item hover blue
+Navbar,navigations,menu-item,active,-,,--sem-color-interactive-primary,,,,,,navbar menu item active current
+Pagination,navigations,-,default,-,,--fdn-color-palette-0f172a,--sem-color-border,--fdn-radius-radius-4,,,,pagination page number default
+Pagination,navigations,-,active,-,,--sem-color-interactive-primary,--sem-color-interactive-primary,--fdn-radius-radius-4,,,,pagination page active current
+Pagination,navigations,-,disabled,-,,--sem-color-text-disabled,--sem-color-border-disabled,--fdn-radius-radius-4,,,,pagination page disabled
+Stepper,navigations,-,done,-,--sem-color-interactive-primary,--sem-color-text-inverse,,--fdn-radius-radius-128,,,,stepper step done complete finished
+Stepper,navigations,-,current,-,--sem-color-interactive-primary,--sem-color-text-inverse,,--fdn-radius-radius-128,,,,stepper step current active progress
+Stepper,navigations,-,todo,-,--sem-color-bg-secondary,--sem-color-text-secondary,,--fdn-radius-radius-128,,,,stepper step todo pending future
+Tabs,navigations,-,default,-,,--sem-color-text-secondary,,,,,,tabs tab default inactive
+Tabs,navigations,-,hover,-,,--sem-color-interactive-primary-hover,,,,,,tabs tab hover
+Tabs,navigations,-,active,-,,--sem-color-interactive-primary,,,,,,tabs tab active selected current
+Tabs,navigations,-,disabled,-,,--sem-color-text-disabled,,,,,,tabs tab disabled

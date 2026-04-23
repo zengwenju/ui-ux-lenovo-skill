@@ -1,0 +1,18 @@
+<!-- Cake Design System — Tree -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Tree</title>
+<style>
+.cake-tree__node { display: flex; align-items: center; padding: var(--fdn-spacing-space-4) var(--fdn-spacing-space-8); cursor: pointer; border-radius: var(--fdn-radius-radius-4); }
+.cake-tree__node:hover { background: var(--fdn-color-palette-f1f5f9); }
+.cake-tree__node--selected { background: var(--fdn-color-palette-e0f2fe); }
+.cake-tree__node--child { padding-left: var(--fdn-spacing-space-24); }
+.cake-tree__arrow { width: 16px; flex-shrink: 0; display: inline-block; }
+</style></head>
+<body>
+  <div>
+    <div class="cake-tree__node"><span class="cake-tree__arrow">▾</span><span>Documents</span></div>
+    <div class="cake-tree__node cake-tree__node--child cake-tree__node--selected"><span>Resume.pdf</span></div>
+    <div class="cake-tree__node cake-tree__node--child"><span>Cover.pdf</span></div>
+    <div class="cake-tree__node"><span class="cake-tree__arrow">▸</span><span>Photos</span></div>
+  </div>
+</body></html>

@@ -1,0 +1,19 @@
+<!-- Cake Design System — Accordion -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Accordion</title>
+<style>
+.cake-accordion__header {
+  padding: var(--fdn-spacing-space-16); cursor: pointer; display: flex; justify-content: space-between;
+  align-items: center; border-bottom: 1px solid var(--fdn-color-palette-e2e8f0); transition: background 0.15s;
+}
+.cake-accordion__header:hover { background: var(--fdn-color-palette-f1f5f9); }
+.cake-accordion__body { padding: var(--fdn-spacing-space-16); color: var(--sem-color-text-secondary); border-bottom: 1px solid var(--fdn-color-palette-e2e8f0); }
+</style></head>
+<body>
+  <div>
+    <div class="cake-accordion__header"><span>Section 1</span><span>−</span></div>
+    <div class="cake-accordion__body">Content for section 1 goes here.</div>
+    <div class="cake-accordion__header"><span>Section 2</span><span>+</span></div>
+    <div class="cake-accordion__header"><span>Section 3</span><span>+</span></div>
+  </div>
+</body></html>

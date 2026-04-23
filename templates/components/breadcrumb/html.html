@@ -1,0 +1,19 @@
+<!-- Cake Design System — Breadcrumb -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Breadcrumb</title>
+<style>
+.cake-breadcrumb { display: flex; align-items: center; gap: var(--fdn-spacing-space-8); flex-wrap: wrap; }
+.cake-breadcrumb__link { color: var(--sem-color-text-link); text-decoration: none; }
+.cake-breadcrumb__link:hover { color: var(--sem-color-text-link-hover); }
+.cake-breadcrumb__current { color: var(--sem-color-text-secondary); }
+.cake-breadcrumb__sep { color: var(--sem-color-text-secondary); }
+</style></head>
+<body>
+  <nav class="cake-breadcrumb">
+    <a href="#" class="cake-breadcrumb__link">Home</a>
+    <span class="cake-breadcrumb__sep">/</span>
+    <a href="#" class="cake-breadcrumb__link">Products</a>
+    <span class="cake-breadcrumb__sep">/</span>
+    <span class="cake-breadcrumb__current">Laptop</span>
+  </nav>
+</body></html>

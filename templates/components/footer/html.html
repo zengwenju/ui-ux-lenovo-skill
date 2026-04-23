@@ -1,0 +1,22 @@
+<!-- Cake Design System — Footer -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Footer</title>
+<style>
+.cake-footer { padding: var(--fdn-spacing-space-80) var(--fdn-spacing-space-24) var(--fdn-spacing-space-24); }
+.cake-footer--light { background: var(--sem-color-bg-primary); }
+.cake-footer--dark { background: var(--fdn-color-palette-0f172a); color: var(--sem-color-text-inverse); }
+.cake-footer__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--fdn-spacing-space-24); }
+.cake-footer__link { color: var(--sem-color-text-link); text-decoration: none; display: block; margin-bottom: var(--fdn-spacing-space-4); }
+.cake-footer__link:hover { color: var(--sem-color-text-link-hover); }
+.cake-footer__bottom { color: var(--sem-color-text-secondary); margin-top: var(--fdn-spacing-space-24); font-size: 13px; }
+</style></head>
+<body>
+  <footer class="cake-footer cake-footer--dark">
+    <div class="cake-footer__grid">
+      <div><strong>Products</strong><div style="margin-top:8px"><a href="#" class="cake-footer__link">Laptops</a><a href="#" class="cake-footer__link">Desktops</a></div></div>
+      <div><strong>Support</strong><div style="margin-top:8px"><a href="#" class="cake-footer__link">FAQ</a><a href="#" class="cake-footer__link">Contact</a></div></div>
+      <div><strong>Company</strong><div style="margin-top:8px"><a href="#" class="cake-footer__link">About</a><a href="#" class="cake-footer__link">Careers</a></div></div>
+    </div>
+    <div class="cake-footer__bottom"><a href="#" class="cake-footer__link" style="display:inline;margin-right:16px">Privacy</a><a href="#" class="cake-footer__link" style="display:inline">Terms</a></div>
+  </footer>
+</body></html>

@@ -1,0 +1,24 @@
+<!-- Cake Design System — Pagination -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Pagination</title>
+<style>
+.cake-pagination { display: flex; gap: var(--fdn-spacing-space-4); align-items: center; }
+.cake-pagination__item {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: var(--fdn-radius-radius-4); cursor: pointer;
+  border: 1px solid var(--sem-color-border); color: var(--fdn-color-palette-0f172a); background: transparent;
+}
+.cake-pagination__item--active { border-color: var(--sem-color-interactive-primary); color: var(--sem-color-interactive-primary); }
+.cake-pagination__item--disabled { color: var(--sem-color-text-disabled); border-color: var(--sem-color-border-disabled); cursor: not-allowed; }
+</style></head>
+<body>
+  <div class="cake-pagination">
+    <button class="cake-pagination__item cake-pagination__item--disabled">&lt;</button>
+    <button class="cake-pagination__item cake-pagination__item--active">1</button>
+    <button class="cake-pagination__item">2</button>
+    <button class="cake-pagination__item">3</button>
+    <button class="cake-pagination__item">4</button>
+    <button class="cake-pagination__item">5</button>
+    <button class="cake-pagination__item">&gt;</button>
+  </div>
+</body></html>

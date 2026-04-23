@@ -1,0 +1,20 @@
+<!-- Cake Design System — Badge -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Badge</title>
+<style>
+.cake-badge { position: relative; display: inline-flex; margin-right: 24px; }
+.cake-badge__sup {
+  position: absolute; top: -4px; right: -4px;
+  color: var(--sem-color-text-inverse); border-radius: var(--fdn-radius-radius-100);
+  font-size: 11px; line-height: 1; min-width: 18px; height: 18px;
+  display: flex; align-items: center; justify-content: center; padding: 0 5px;
+}
+.cake-badge__sup--dot { min-width: 8px; height: 8px; padding: 0; }
+.cake-badge__sup--info { background: var(--sem-color-interactive-primary); }
+.cake-badge__sup--error { background: var(--sem-color-state-error); }
+.placeholder { width: 40px; height: 40px; background: var(--sem-color-bg-secondary); border-radius: var(--fdn-radius-radius-4); }
+</style></head>
+<body>
+  <span class="cake-badge"><div class="placeholder"></div><span class="cake-badge__sup cake-badge__sup--info">5</span></span>
+  <span class="cake-badge"><div class="placeholder"></div><span class="cake-badge__sup cake-badge__sup--error cake-badge__sup--dot"></span></span>
+</body></html>

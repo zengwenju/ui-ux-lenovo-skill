@@ -1,0 +1,18 @@
+<!-- Cake Design System — Loading -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Loading</title>
+<style>
+.cake-progress { width: 200px; height: 6px; border-radius: var(--fdn-radius-radius-4); background: var(--sem-color-bg-secondary); overflow: hidden; }
+.cake-progress__bar { height: 100%; width: 60%; background: var(--sem-color-interactive-primary); border-radius: var(--fdn-radius-radius-4); transition: width 0.3s; }
+.cake-spinner { animation: cake-spin 1s linear infinite; }
+@keyframes cake-spin { to { transform: rotate(360deg); } }
+</style></head>
+<body>
+  <p>Progress:</p>
+  <div class="cake-progress"><div class="cake-progress__bar"></div></div>
+  <br><p>Spinner:</p>
+  <svg class="cake-spinner" width="24" height="24" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" fill="none" stroke="var(--sem-color-bg-secondary)" stroke-width="3" />
+    <circle cx="12" cy="12" r="10" fill="none" stroke="var(--sem-color-interactive-primary)" stroke-width="3" stroke-dasharray="31.4 31.4" stroke-linecap="round" />
+  </svg>
+</body></html>

@@ -1,0 +1,33 @@
+# Cake Design System — Cursor Rules
+# This file makes Cursor aware of the Cake design token constraints.
+# Full specification: see SKILL.md in this directory.
+
+## Core Constraint
+All UI code must use Cake Design System CSS variables from `cake-tokens.css`.
+Never hard-code hex colors, pixel spacing, border-radius, or shadow values.
+
+## Token References
+- Colors: `var(--fdn-color-palette-*)` or `var(--sem-color-*)`
+- Spacing: `var(--fdn-spacing-space-{0,1,2,4,8,10,12,16,20,24,28,80})`
+- Radius: `var(--fdn-radius-radius-{4,5,8,100,128})`
+- Shadows: `var(--fdn-shadow-shadow-{1,2,3,4,5})`
+- Typography: `var(--fdn-typo-style-{N}-{font-family,font-size,font-weight,line-height,letter-spacing})`
+
+## Component Templates
+Pre-built templates for 29 Cake components (React/Vue/HTML) are in `templates/components/`.
+Reference them when implementing any Cake component.
+
+## Semantic Color Map (key tokens)
+- `--sem-color-bg-brand` → #0F172A (primary brand background)
+- `--sem-color-text-inverse` → #FFFFFF (text on dark bg)
+- `--sem-color-interactive-primary-hover` → #1D4ED8 (hover state)
+- `--sem-color-border` → #737373 (default borders)
+- `--sem-color-border-error` → #B91C1C (error state)
+- `--sem-color-state-success` → #F0FDF4 (success background)
+- `--sem-color-state-error-light` → #FFF1F2 (error background)
+
+## Search
+Use `python scripts/search.py "query" --domain {color|component|typography|spacing}` to find tokens.
+
+## Full Rules
+Read `SKILL.md` for complete mandatory rules, all 26 semantic tokens, and framework integration guides.

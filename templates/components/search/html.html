@@ -1,0 +1,21 @@
+<!-- Cake Design System — Search -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Search</title>
+<style>
+.cake-search { position: relative; width: 280px; }
+.cake-search__input { width: 100%; padding: var(--fdn-spacing-space-8) var(--fdn-spacing-space-12); border: 1px solid var(--sem-color-border); border-radius: var(--fdn-radius-radius-4); outline: none; box-sizing: border-box; }
+.cake-search__input:focus { border-color: var(--sem-color-border-focus); }
+.cake-search__panel { position: absolute; top: 100%; left: 0; right: 0; margin-top: 4px; background: var(--sem-color-bg-surface); box-shadow: var(--fdn-shadow-shadow-1); border-radius: var(--fdn-radius-radius-4); overflow: hidden; z-index: 10; }
+.cake-search__item { padding: var(--fdn-spacing-space-8) var(--fdn-spacing-space-12); cursor: pointer; }
+.cake-search__item:hover { background: var(--fdn-color-palette-f1f5f9); }
+</style></head>
+<body>
+  <div class="cake-search">
+    <input class="cake-search__input" placeholder="Search..." value="Lap" />
+    <div class="cake-search__panel">
+      <div class="cake-search__item">Laptop</div>
+      <div class="cake-search__item">Laptop Pro</div>
+      <div class="cake-search__item">Laptop Air</div>
+    </div>
+  </div>
+</body></html>

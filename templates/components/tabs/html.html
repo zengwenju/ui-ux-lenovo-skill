@@ -1,0 +1,21 @@
+<!-- Cake Design System — Tabs -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Tabs</title>
+<style>
+.cake-tabs { display: flex; border-bottom: 1px solid var(--sem-color-border); }
+.cake-tabs__item {
+  padding: var(--fdn-spacing-space-8) var(--fdn-spacing-space-16); cursor: pointer; background: transparent; border: none;
+  color: var(--sem-color-text-secondary); border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s;
+}
+.cake-tabs__item:hover { color: var(--sem-color-interactive-primary-hover); }
+.cake-tabs__item--active { color: var(--sem-color-interactive-primary); border-bottom-color: var(--sem-color-interactive-primary); }
+.cake-tabs__item--disabled { color: var(--sem-color-text-disabled); cursor: not-allowed; }
+</style></head>
+<body>
+  <div class="cake-tabs">
+    <button class="cake-tabs__item cake-tabs__item--active">Overview</button>
+    <button class="cake-tabs__item">Features</button>
+    <button class="cake-tabs__item">Specs</button>
+    <button class="cake-tabs__item cake-tabs__item--disabled">Reviews</button>
+  </div>
+</body></html>

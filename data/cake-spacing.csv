@@ -1,0 +1,26 @@
+Category,Token Key,Value,CSS Variable,Keywords
+spacing,fdn.spacing.space-0,0px,--fdn-spacing-space-0,none zero no gap
+spacing,fdn.spacing.space-1,1px,--fdn-spacing-space-1,hairline border pixel
+spacing,fdn.spacing.space-2,2px,--fdn-spacing-space-2,tiny micro border outline
+spacing,fdn.spacing.space-4,4px,--fdn-spacing-space-4,tight compact icon gap small
+spacing,fdn.spacing.space-8,8px,--fdn-spacing-space-8,small button-y padding inner gap
+spacing,fdn.spacing.space-10,10px,--fdn-spacing-space-10,small-md padding cell
+spacing,fdn.spacing.space-12,12px,--fdn-spacing-space-12,medium input padding cell
+spacing,fdn.spacing.space-13,13px,--fdn-spacing-space-13,medium-alt specific
+spacing,fdn.spacing.space-16,16px,--fdn-spacing-space-16,medium button-x card padding standard
+spacing,fdn.spacing.space-20,20px,--fdn-spacing-space-20,large padding section
+spacing,fdn.spacing.space-24,24px,--fdn-spacing-space-24,large modal drawer section padding
+spacing,fdn.spacing.space-28,28px,--fdn-spacing-space-28,xl padding section
+spacing,fdn.spacing.space-59,59px,--fdn-spacing-space-59,specific layout
+spacing,fdn.spacing.space-80,80px,--fdn-spacing-space-80,xxl footer section block
+spacing,fdn.spacing.space-126,126px,--fdn-spacing-space-126,xxxl hero specific
+radius,fdn.radius.radius-4,4px,--fdn-radius-radius-4,small button input checkbox default
+radius,fdn.radius.radius-5,5px,--fdn-radius-radius-5,small-alt toggle
+radius,fdn.radius.radius-8,8px,--fdn-radius-radius-8,medium card modal toast drawer
+radius,fdn.radius.radius-100,100px,--fdn-radius-radius-100,pill badge round switch full
+radius,fdn.radius.radius-128,128px,--fdn-radius-radius-128,circle avatar round full
+shadow,fdn.shadow.shadow-1,"0px 1px 3px 0px rgba(0, 0, 0, 0.12)",--fdn-shadow-shadow-1,subtle card hover light elevation-1
+shadow,fdn.shadow.shadow-2,"0px 4px 4px 0px rgba(0, 0, 0, 0.25)",--fdn-shadow-shadow-2,modal dropdown elevated popup elevation-2
+shadow,fdn.shadow.shadow-3,"0px 1px 1px 0px rgba(0, 0, 0, 0.14)",--fdn-shadow-shadow-3,toggle thumb subtle inner elevation-1
+shadow,fdn.shadow.shadow-4,"0px 2px 1px -1px rgba(0, 0, 0, 0.2)",--fdn-shadow-shadow-4,toggle thumb raised inner elevation-1
+shadow,fdn.shadow.shadow-5,"-2px 0px 6px 0px rgba(0, 0, 0, 0.1)",--fdn-shadow-shadow-5,drawer sidebar left panel sticky

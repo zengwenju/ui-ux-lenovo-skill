@@ -1,0 +1,22 @@
+<!-- Cake Design System — Toast -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Toast</title>
+<style>
+.cake-toast {
+  border-radius: var(--fdn-radius-radius-8); padding: var(--fdn-spacing-space-16);
+  box-shadow: var(--fdn-shadow-shadow-1); display: flex; justify-content: space-between;
+  align-items: flex-start; min-width: 280px; max-width: 400px; margin-bottom: 8px;
+}
+.cake-toast--info { background: var(--sem-color-state-info); }
+.cake-toast--success { background: var(--sem-color-state-success); }
+.cake-toast--error { background: var(--sem-color-state-error-light); }
+.cake-toast--warning { background: var(--sem-color-state-warning); }
+.cake-toast__title { display: block; font-weight: bold; }
+.cake-toast__close { background: none; border: none; cursor: pointer; font-size: 16px; }
+</style></head>
+<body>
+  <div class="cake-toast cake-toast--info"><div><span class="cake-toast__title">Info</span><span>This is an info toast</span></div><button class="cake-toast__close">&times;</button></div>
+  <div class="cake-toast cake-toast--success"><div><span class="cake-toast__title">Success</span><span>Operation completed</span></div><button class="cake-toast__close">&times;</button></div>
+  <div class="cake-toast cake-toast--error"><div><span class="cake-toast__title">Error</span><span>Something went wrong</span></div><button class="cake-toast__close">&times;</button></div>
+  <div class="cake-toast cake-toast--warning"><div><span class="cake-toast__title">Warning</span><span>Please be careful</span></div><button class="cake-toast__close">&times;</button></div>
+</body></html>

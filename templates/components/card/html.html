@@ -1,0 +1,26 @@
+<!-- Cake Design System — Card -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Card</title>
+<style>
+.cake-card {
+  background: var(--sem-color-bg-surface); border: 1px solid var(--sem-color-border);
+  border-radius: var(--fdn-radius-radius-8); padding: var(--fdn-spacing-space-16);
+  box-shadow: var(--fdn-shadow-shadow-1); transition: box-shadow 0.2s; overflow: hidden;
+  max-width: 320px;
+}
+.cake-card--horizontal { display: flex; gap: var(--fdn-spacing-space-16); }
+.cake-card--hoverable:hover { box-shadow: var(--fdn-shadow-shadow-2); cursor: pointer; }
+.cake-card__title { font-size: var(--fdn-typo-style-16-font-size); font-weight: var(--fdn-typo-style-16-font-weight); line-height: var(--fdn-typo-style-16-line-height); }
+.cake-card__meta { color: var(--sem-color-text-secondary); margin-top: var(--fdn-spacing-space-4); }
+.cake-card__actions { margin-top: var(--fdn-spacing-space-12); display: flex; gap: var(--fdn-spacing-space-8); }
+</style></head>
+<body>
+  <div class="cake-card cake-card--hoverable">
+    <div class="cake-card__title">Card Title</div>
+    <div class="cake-card__meta">Meta information</div>
+    <p>Card content goes here.</p>
+    <div class="cake-card__actions">
+      <button>Action</button>
+    </div>
+  </div>
+</body></html>

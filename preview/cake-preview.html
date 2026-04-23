@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cake Design System — Preview Portal</title>
+  <style>
+    /* ========== CAKE TOKENS (embedded) ========== */
+    :root {
+      --fdn-color-palette-0f172a: #0F172A;
+      --fdn-color-palette-1d4ed8: #1D4ED8;
+      --fdn-color-palette-1e3a8a: #1E3A8A;
+      --fdn-color-palette-2563eb: #2563EB;
+      --fdn-color-palette-334155: #334155;
+      --fdn-color-palette-047857: #047857;
+      --fdn-color-palette-14b8a6: #14B8A6;
+      --fdn-color-palette-16a34a: #16A34A;
+      --fdn-color-palette-64748b: #64748B;
+      --fdn-color-palette-737373: #737373;
+      --fdn-color-palette-7c3aed: #7C3AED;
+      --fdn-color-palette-94a3b8: #94A3B8;
+      --fdn-color-palette-9ca3af: #9CA3AF;
+      --fdn-color-palette-b91c1c: #B91C1C;
+      --fdn-color-palette-e11d48: #E11D48;
+      --fdn-color-palette-e2e8f0: #E2E8F0;
+      --fdn-color-palette-ea580c: #EA580C;
+      --fdn-color-palette-f59e0b: #F59E0B;
+      --fdn-color-palette-ffffff: #FFFFFF;
+      --fdn-color-palette-dbeafe: #DBEAFE;
+      --fdn-color-palette-e0f2fe: #E0F2FE;
+      --fdn-color-palette-f0fdf4: #F0FDF4;
+      --fdn-color-palette-f0fdfa: #F0FDFA;
+      --fdn-color-palette-f1f5f9: #F1F5F9;
+      --fdn-color-palette-f3f4f6: #F3F4F6;
+      --fdn-color-palette-f5f3ff: #F5F3FF;
+      --fdn-color-palette-f5f5f5: #F5F5F5;
+      --fdn-color-palette-fafafa: #FAFAFA;
+      --fdn-color-palette-fefce8: #FEFCE8;
+      --fdn-color-palette-fff1f2: #FFF1F2;
+      --fdn-color-palette-fff7ed: #FFF7ED;
+      --fdn-spacing-space-4: 4px;
+      --fdn-spacing-space-8: 8px;
+      --fdn-spacing-space-12: 12px;
+      --fdn-spacing-space-16: 16px;
+      --fdn-spacing-space-24: 24px;
+      --fdn-radius-radius-4: 4px;
+      --fdn-radius-radius-8: 8px;
+      --fdn-radius-radius-100: 100px;
+      --fdn-radius-radius-128: 128px;
+      --fdn-shadow-shadow-1: 0px 1px 3px 0px rgba(0,0,0,0.12);
+      --fdn-shadow-shadow-2: 0px 4px 4px 0px rgba(0,0,0,0.25);
+      --sem-color-bg-brand: var(--fdn-color-palette-0f172a);
+      --sem-color-bg-primary: var(--fdn-color-palette-ffffff);
+      --sem-color-bg-secondary: var(--fdn-color-palette-f5f5f5);
+      --sem-color-bg-disabled: var(--fdn-color-palette-f5f5f5);
+      --sem-color-text-inverse: var(--fdn-color-palette-ffffff);
+      --sem-color-text-secondary: var(--fdn-color-palette-737373);
+      --sem-color-text-disabled: var(--fdn-color-palette-737373);
+      --sem-color-interactive-primary: var(--fdn-color-palette-0f172a);
+      --sem-color-interactive-primary-hover: var(--fdn-color-palette-1d4ed8);
+      --sem-color-border: var(--fdn-color-palette-737373);
+      --sem-color-border-focus: var(--fdn-color-palette-0f172a);
+      --sem-color-border-error: var(--fdn-color-palette-b91c1c);
+      --sem-color-border-disabled: var(--fdn-color-palette-f5f5f5);
+      --sem-color-state-success: var(--fdn-color-palette-f0fdf4);
+      --sem-color-state-error: var(--fdn-color-palette-b91c1c);
+      --sem-color-state-error-light: var(--fdn-color-palette-fff1f2);
+      --sem-color-state-warning: var(--fdn-color-palette-fff7ed);
+      --sem-color-state-info: var(--fdn-color-palette-047857);
+    }
+
+    /* ========== BASE ========== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: #F8FAFC;
+      color: var(--fdn-color-palette-0f172a);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ========== HEADER ========== */
+    .header {
+      background: var(--sem-color-bg-brand);
+      color: var(--sem-color-text-inverse);
+      padding: 48px 24px 56px;
+      text-align: center;
+    }
+    .header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .header p { font-size: 1rem; opacity: 0.8; max-width: 600px; margin: 0 auto; }
+    .header .badges { display: flex; gap: 12px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+    .badge-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: var(--fdn-radius-radius-100);
+      font-size: 0.8rem; font-weight: 600;
+      background: rgba(255,255,255,0.15); color: var(--sem-color-text-inverse);
+    }
+
+    /* ========== NAV ========== */
+    .nav {
+      background: var(--sem-color-bg-primary);
+      border-bottom: 1px solid var(--fdn-color-palette-e2e8f0);
+      position: sticky; top: 0; z-index: 100;
+      overflow-x: auto; white-space: nowrap;
+      box-shadow: var(--fdn-shadow-shadow-1);
+    }
+    .nav-inner { display: flex; max-width: 1100px; margin: 0 auto; }
+    .nav a {
+      padding: 14px 20px; text-decoration: none; font-size: 0.85rem; font-weight: 600;
+      color: var(--sem-color-text-secondary); border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav a:hover { color: var(--sem-color-interactive-primary-hover); }
+    .nav a.active { color: var(--sem-color-interactive-primary); border-bottom-color: var(--sem-color-interactive-primary); }
+
+    /* ========== LAYOUT ========== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+    .section { margin-bottom: 48px; }
+    .section-title {
+      font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;
+      padding-bottom: 8px; border-bottom: 2px solid var(--fdn-color-palette-e2e8f0);
+    }
+    .section-desc { color: var(--sem-color-text-secondary); font-size: 0.9rem; margin-bottom: 24px; }
+
+    /* ========== COLOR SWATCHES ========== */
+    .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+    .color-card {
+      border-radius: var(--fdn-radius-radius-8);
+      overflow: hidden; box-shadow: var(--fdn-shadow-shadow-1);
+      background: var(--sem-color-bg-primary);
+    }
+    .color-swatch { height: 64px; }
+    .color-info { padding: 10px; }
+    .color-info .name { font-size: 0.75rem; font-weight: 600; margin-bottom: 2px; }
+    .color-info .hex { font-size: 0.7rem; color: var(--sem-color-text-secondary); font-family: monospace; }
+    .color-info .usage { font-size: 0.65rem; color: var(--sem-color-text-secondary); margin-top: 2px; }
+
+    /* ========== SEMANTIC TOKENS ========== */
+    .sem-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+    .sem-card {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 16px; border-radius: var(--fdn-radius-radius-8);
+      background: var(--sem-color-bg-primary); box-shadow: var(--fdn-shadow-shadow-1);
+    }
+    .sem-dot { width: 32px; height: 32px; border-radius: var(--fdn-radius-radius-4); flex-shrink: 0; border: 1px solid var(--fdn-color-palette-e2e8f0); }
+    .sem-label { font-size: 0.75rem; font-weight: 600; }
+    .sem-var { font-size: 0.65rem; color: var(--sem-color-text-secondary); font-family: monospace; word-break: break-all; }
+
+    /* ========== COMPONENTS ========== */
+    .demo-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 16px; }
+    .demo-label { font-size: 0.8rem; font-weight: 600; color: var(--sem-color-text-secondary); min-width: 80px; }
+
+    /* Buttons */
+    .cake-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      border: none; cursor: pointer; font-family: inherit; font-weight: 600;
+      border-radius: var(--fdn-radius-radius-4); padding: var(--fdn-spacing-space-8) var(--fdn-spacing-space-16);
+      font-size: 14px; transition: all 0.2s;
+    }
+    .cake-btn--filled { background: var(--sem-color-bg-brand); color: var(--sem-color-text-inverse); }
+    .cake-btn--filled:hover { background: var(--sem-color-interactive-primary-hover); }
+    .cake-btn--filled.success { background: var(--fdn-color-palette-047857); }
+    .cake-btn--filled.error { background: var(--fdn-color-palette-b91c1c); }
+    .cake-btn--filled:disabled { background: var(--sem-color-bg-disabled); color: var(--sem-color-text-disabled); cursor: not-allowed; }
+    .cake-btn--outlined { background: transparent; border: 1px solid var(--sem-color-border); color: var(--sem-color-interactive-primary); }
+    .cake-btn--outlined:hover { border-color: var(--sem-color-border-focus); color: var(--sem-color-interactive-primary-hover); }
+    .cake-btn--text { background: transparent; color: var(--sem-color-interactive-primary); }
+    .cake-btn--text:hover { background: var(--fdn-color-palette-f1f5f9); }
+    .cake-btn--sm { padding: var(--fdn-spacing-space-4) var(--fdn-spacing-space-12); font-size: 12px; }
+
+    /* Checkbox / Radio / Toggle */
+    .cake-check { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; }
+    .cake-check-box {
+      width: 18px; height: 18px; border: 2px solid var(--sem-color-border);
+      border-radius: var(--fdn-radius-radius-4); display: flex; align-items: center; justify-content: center;
+      transition: all 0.15s;
+    }
+    .cake-check-box.checked { background: var(--sem-color-interactive-primary); border-color: var(--sem-color-interactive-primary); }
+    .cake-check-box.checked::after { content: "✓"; color: var(--sem-color-text-inverse); font-size: 12px; font-weight: 700; }
+    .cake-check-box.indeterminate { background: var(--sem-color-interactive-primary); border-color: var(--sem-color-interactive-primary); }
+    .cake-check-box.indeterminate::after { content: "–"; color: var(--sem-color-text-inverse); font-size: 14px; font-weight: 700; }
+    .cake-check-box.disabled { background: var(--sem-color-bg-disabled); border-color: var(--sem-color-border-disabled); }
+
+    .cake-radio-dot {
+      width: 18px; height: 18px; border: 2px solid var(--sem-color-border);
+      border-radius: var(--fdn-radius-radius-128); display: flex; align-items: center; justify-content: center;
+    }
+    .cake-radio-dot.checked { border-color: var(--sem-color-interactive-primary); }
+    .cake-radio-dot.checked::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--sem-color-interactive-primary); }
+
+    .cake-toggle {
+      width: 44px; height: 24px; border-radius: var(--fdn-radius-radius-128);
+      background: var(--sem-color-bg-secondary); position: relative; cursor: pointer; transition: background 0.2s;
+      border: 1px solid var(--fdn-color-palette-e2e8f0);
+    }
+    .cake-toggle.on { background: var(--sem-color-interactive-primary); border-color: var(--sem-color-interactive-primary); }
+    .cake-toggle::after {
+      content: ""; position: absolute; width: 18px; height: 18px; border-radius: 50%;
+      background: var(--sem-color-bg-primary); top: 2px; left: 2px;
+      box-shadow: var(--fdn-shadow-shadow-1); transition: transform 0.2s;
+    }
+    .cake-toggle.on::after { transform: translateX(20px); }
+
+    /* Labels / Tags */
+    .cake-label {
+      display: inline-flex; align-items: center; padding: var(--fdn-spacing-space-4) var(--fdn-spacing-space-8);
+      border-radius: var(--fdn-radius-radius-4); font-size: 12px; font-weight: 600;
+    }
+    .cake-label--solid { background: var(--fdn-color-palette-1e3a8a); color: var(--sem-color-text-inverse); }
+    .cake-label--soft { background: var(--fdn-color-palette-e0f2fe); color: var(--fdn-color-palette-1e3a8a); }
+    .cake-label--outline { border: 1px solid var(--fdn-color-palette-1e3a8a); color: var(--fdn-color-palette-1e3a8a); background: transparent; }
+    .cake-label--green.cake-label--solid { background: var(--fdn-color-palette-047857); }
+    .cake-label--green.cake-label--soft { background: var(--fdn-color-palette-f0fdf4); color: var(--fdn-color-palette-047857); }
+    .cake-label--red.cake-label--solid { background: var(--fdn-color-palette-b91c1c); }
+    .cake-label--red.cake-label--soft { background: var(--fdn-color-palette-fff1f2); color: var(--fdn-color-palette-b91c1c); }
+    .cake-label--purple.cake-label--solid { background: var(--fdn-color-palette-7c3aed); }
+    .cake-label--purple.cake-label--soft { background: var(--fdn-color-palette-f5f3ff); color: var(--fdn-color-palette-7c3aed); }
+    .cake-label--orange.cake-label--solid { background: var(--fdn-color-palette-ea580c); }
+    .cake-label--orange.cake-label--soft { background: var(--fdn-color-palette-fff7ed); color: var(--fdn-color-palette-ea580c); }
+
+    /* Cards */
+    .cake-card {
+      background: var(--sem-color-bg-primary); border: 1px solid var(--fdn-color-palette-e2e8f0);
+      border-radius: var(--fdn-radius-radius-8); box-shadow: var(--fdn-shadow-shadow-1);
+      padding: var(--fdn-spacing-space-16); transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .cake-card:hover { box-shadow: var(--fdn-shadow-shadow-2); transform: translateY(-1px); }
+    .cake-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .cake-card p { font-size: 14px; color: var(--sem-color-text-secondary); }
+
+    /* Input */
+    .cake-input {
+      border: 1px solid var(--sem-color-border); border-radius: var(--fdn-radius-radius-4);
+      padding: var(--fdn-spacing-space-8) var(--fdn-spacing-space-12); font-size: 14px;
+      font-family: inherit; width: 240px; transition: border-color 0.2s; outline: none;
+      background: var(--sem-color-bg-primary);
+    }
+    .cake-input:focus { border-color: var(--sem-color-border-focus); }
+    .cake-input.error { border-color: var(--sem-color-border-error); }
+    .cake-input:disabled { background: var(--sem-color-bg-disabled); color: var(--sem-color-text-disabled); border-color: var(--sem-color-border-disabled); }
+    .input-caption { font-size: 12px; margin-top: 4px; }
+    .input-caption.error { color: var(--fdn-color-palette-b91c1c); }
+
+    /* Toast */
+    .cake-toast {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: var(--fdn-spacing-space-16); border-radius: var(--fdn-radius-radius-8);
+      box-shadow: var(--fdn-shadow-shadow-1); font-size: 14px; max-width: 400px;
+    }
+    .cake-toast--info { background: #ECFDF5; }
+    .cake-toast--success { background: var(--sem-color-state-success); }
+    .cake-toast--error { background: var(--sem-color-state-error-light); }
+    .cake-toast--warning { background: var(--sem-color-state-warning); }
+    .cake-toast .icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .cake-toast strong { display: block; margin-bottom: 2px; }
+
+    /* Tooltip */
+    .tooltip-wrap { position: relative; display: inline-block; }
+    .tooltip-box {
+      position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+      background: var(--fdn-color-palette-0f172a); color: var(--sem-color-text-inverse);
+      padding: var(--fdn-spacing-space-8) var(--fdn-spacing-space-12); border-radius: var(--fdn-radius-radius-4);
+      font-size: 12px; white-space: nowrap; box-shadow: var(--fdn-shadow-shadow-1);
+    }
+    .tooltip-box::after {
+      content: ""; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      border: 5px solid transparent; border-top-color: var(--fdn-color-palette-0f172a);
+    }
+
+    /* Badge */
+    .badge-wrap { position: relative; display: inline-block; }
+    .cake-badge {
+      position: absolute; top: -6px; right: -6px; min-width: 18px; height: 18px;
+      border-radius: var(--fdn-radius-radius-100); font-size: 10px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; padding: 0 5px;
+      color: var(--sem-color-text-inverse);
+    }
+    .cake-badge--error { background: var(--sem-color-state-error); }
+    .cake-badge--info { background: var(--sem-color-interactive-primary); }
+
+    /* Pagination */
+    .cake-pagination { display: flex; gap: 4px; align-items: center; }
+    .cake-page {
+      width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--sem-color-border); border-radius: var(--fdn-radius-radius-4);
+      font-size: 13px; cursor: pointer; background: var(--sem-color-bg-primary);
+      transition: all 0.15s; text-decoration: none; color: inherit;
+    }
+    .cake-page:hover { border-color: var(--sem-color-border-focus); }
+    .cake-page.active { border-color: var(--sem-color-interactive-primary); color: var(--sem-color-interactive-primary); font-weight: 700; }
+    .cake-page.disabled { color: var(--sem-color-text-disabled); border-color: var(--sem-color-border-disabled); cursor: not-allowed; }
+
+    /* Tabs */
+    .cake-tabs { display: flex; border-bottom: 1px solid var(--fdn-color-palette-e2e8f0); }
+    .cake-tab {
+      padding: 12px 20px; font-size: 14px; font-weight: 600; cursor: pointer;
+      color: var(--sem-color-text-secondary); border-bottom: 2px solid transparent;
+      transition: all 0.2s; background: none; border-top: none; border-left: none; border-right: none;
+    }
+    .cake-tab:hover { color: var(--sem-color-interactive-primary-hover); }
+    .cake-tab.active { color: var(--sem-color-interactive-primary); border-bottom-color: var(--sem-color-interactive-primary); }
+
+    /* Breadcrumb */
+    .cake-breadcrumb { display: flex; align-items: center; gap: var(--fdn-spacing-space-8); font-size: 13px; }
+    .cake-breadcrumb a { color: var(--fdn-color-palette-0f172a); text-decoration: none; font-weight: 500; }
+    .cake-breadcrumb a:hover { color: var(--sem-color-interactive-primary-hover); text-decoration: underline; }
+    .cake-breadcrumb .sep { color: var(--sem-color-text-secondary); }
+    .cake-breadcrumb .current { color: var(--sem-color-text-secondary); }
+
+    /* Table */
+    .cake-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .cake-table th {
+      text-align: left; padding: var(--fdn-spacing-space-12) var(--fdn-spacing-space-16);
+      background: var(--sem-color-bg-secondary); border-bottom: 1px solid var(--fdn-color-palette-e2e8f0);
+      font-weight: 600; font-size: 13px;
+    }
+    .cake-table td {
+      padding: var(--fdn-spacing-space-12) var(--fdn-spacing-space-16);
+      border-bottom: 1px solid var(--fdn-color-palette-e2e8f0);
+    }
+    .cake-table tr:hover td { background: var(--fdn-color-palette-f1f5f9); }
+
+    /* Stepper */
+    .cake-stepper { display: flex; align-items: center; gap: 0; }
+    .step-item { display: flex; align-items: center; gap: 8px; }
+    .step-circle {
+      width: 28px; height: 28px; border-radius: var(--fdn-radius-radius-128);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; flex-shrink: 0;
+    }
+    .step-circle.done { background: var(--sem-color-interactive-primary); color: var(--sem-color-text-inverse); }
+    .step-circle.current { background: var(--sem-color-interactive-primary); color: var(--sem-color-text-inverse); box-shadow: 0 0 0 3px rgba(15,23,42,0.15); }
+    .step-circle.todo { background: var(--sem-color-bg-secondary); color: var(--sem-color-text-secondary); }
+    .step-label { font-size: 13px; font-weight: 500; }
+    .step-line { width: 40px; height: 2px; margin: 0 4px; }
+    .step-line.done { background: var(--sem-color-interactive-primary); }
+    .step-line.todo { background: var(--fdn-color-palette-e2e8f0); }
+
+    /* Accordion */
+    .cake-accordion { border: 1px solid var(--fdn-color-palette-e2e8f0); border-radius: var(--fdn-radius-radius-8); overflow: hidden; }
+    .acc-item { border-bottom: 1px solid var(--fdn-color-palette-e2e8f0); }
+    .acc-item:last-child { border-bottom: none; }
+    .acc-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: var(--fdn-spacing-space-16); cursor: pointer; font-weight: 600; font-size: 14px;
+      transition: background 0.15s;
+    }
+    .acc-header:hover { background: var(--fdn-color-palette-f1f5f9); }
+    .acc-body { padding: 0 var(--fdn-spacing-space-16) var(--fdn-spacing-space-16); font-size: 14px; color: var(--sem-color-text-secondary); }
+
+    /* Spacing showcase */
+    .spacing-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+    .spacing-item { text-align: center; }
+    .spacing-bar { background: var(--fdn-color-palette-1d4ed8); border-radius: 2px; margin-bottom: 4px; height: 24px; }
+    .spacing-val { font-size: 11px; font-family: monospace; color: var(--sem-color-text-secondary); }
+
+    /* Radius showcase */
+    .radius-grid { display: flex; flex-wrap: wrap; gap: 16px; align-items: end; }
+    .radius-item { text-align: center; }
+    .radius-box { width: 56px; height: 56px; background: var(--fdn-color-palette-1d4ed8); margin-bottom: 6px; }
+    .radius-val { font-size: 11px; font-family: monospace; color: var(--sem-color-text-secondary); }
+
+    /* Shadow showcase */
+    .shadow-grid { display: flex; flex-wrap: wrap; gap: 20px; }
+    .shadow-box {
+      width: 100px; height: 60px; background: var(--sem-color-bg-primary);
+      border-radius: var(--fdn-radius-radius-8); display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 600; color: var(--sem-color-text-secondary);
+    }
+
+    /* Typography showcase */
+    .typo-grid { display: grid; gap: 8px; }
+    .typo-row { display: flex; align-items: baseline; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--fdn-color-palette-e2e8f0); }
+    .typo-sample { flex: 1; }
+    .typo-meta { font-size: 11px; font-family: monospace; color: var(--sem-color-text-secondary); min-width: 200px; text-align: right; }
+
+    /* Footer */
+    .footer {
+      background: var(--fdn-color-palette-0f172a); color: var(--sem-color-text-inverse);
+      padding: 40px 24px; text-align: center; margin-top: 48px;
+    }
+    .footer p { opacity: 0.6; font-size: 14px; }
+
+    @media (max-width: 640px) {
+      .color-grid { grid-template-columns: repeat(3, 1fr); }
+      .sem-grid { grid-template-columns: 1fr; }
+      .demo-row { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======== HEADER ======== -->
+  <header class="header">
+    <h1>🍰 Cake Design System</h1>
+    <p>Lenovo Enterprise UI — 29 Components · 260+ Tokens · React / Vue / HTML</p>
+    <div class="badges">
+      <span class="badge-pill">🎨 33 Colors</span>
+      <span class="badge-pill">📐 15 Spacings</span>
+      <span class="badge-pill">🔤 39 Typography Styles</span>
+      <span class="badge-pill">🧩 61 Component Sets</span>
+    </div>
+  </header>
+
+  <!-- ======== NAV ======== -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#colors" class="active">Colors</a>
+      <a href="#semantic">Semantic</a>
+      <a href="#typography">Typography</a>
+      <a href="#spacing">Spacing</a>
+      <a href="#buttons">Buttons</a>
+      <a href="#controls">Controls</a>
+      <a href="#inputs">Inputs</a>
+      <a href="#labels">Labels</a>
+      <a href="#cards">Cards</a>
+      <a href="#feedback">Feedback</a>
+      <a href="#navigation">Navigation</a>
+      <a href="#table">Table</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- ======== COLORS ======== -->
+    <section id="colors" class="section">
+      <h2 class="section-title">Foundation Colors (33)</h2>
+      <p class="section-desc">All colors from Figma, referenced via <code>var(--fdn-color-palette-*)</code></p>
+      <div class="color-grid">
+        <div class="color-card"><div class="color-swatch" style="background:#0F172A"></div><div class="color-info"><div class="name">Foreground</div><div class="hex">#0F172A</div><div class="usage">341 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#1D4ED8"></div><div class="color-info"><div class="name">Primary Hover</div><div class="hex">#1D4ED8</div><div class="usage">46 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#1E3A8A"></div><div class="color-info"><div class="name">Primary Dark</div><div class="hex">#1E3A8A</div><div class="usage">33 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#2563EB"></div><div class="color-info"><div class="name">Accent Blue</div><div class="hex">#2563EB</div><div class="usage">19 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#334155"></div><div class="color-info"><div class="name">Text Secondary</div><div class="hex">#334155</div><div class="usage">39 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#047857"></div><div class="color-info"><div class="name">Success</div><div class="hex">#047857</div><div class="usage">18 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#16A34A"></div><div class="color-info"><div class="name">Success Alt</div><div class="hex">#16A34A</div><div class="usage">6 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#14B8A6"></div><div class="color-info"><div class="name">Teal</div><div class="hex">#14B8A6</div><div class="usage">6 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#7C3AED"></div><div class="color-info"><div class="name">Purple</div><div class="hex">#7C3AED</div><div class="usage">6 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#B91C1C"></div><div class="color-info"><div class="name">Destructive</div><div class="hex">#B91C1C</div><div class="usage">20 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#E11D48"></div><div class="color-info"><div class="name">Error Alt</div><div class="hex">#E11D48</div><div class="usage">6 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#EA580C"></div><div class="color-info"><div class="name">Warning Dark</div><div class="hex">#EA580C</div><div class="usage">7 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#F59E0B"></div><div class="color-info"><div class="name">Warning</div><div class="hex">#F59E0B</div><div class="usage">6 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#737373"></div><div class="color-info"><div class="name">Text Disabled</div><div class="hex">#737373</div><div class="usage">15 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#9CA3AF"></div><div class="color-info"><div class="name">Muted</div><div class="hex">#9CA3AF</div><div class="usage">44 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#94A3B8"></div><div class="color-info"><div class="name">Muted Alt</div><div class="hex">#94A3B8</div><div class="usage">22 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#E2E8F0"></div><div class="color-info"><div class="name">Border</div><div class="hex">#E2E8F0</div><div class="usage">43 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#F1F5F9"></div><div class="color-info"><div class="name">Hover BG</div><div class="hex">#F1F5F9</div><div class="usage">39 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#F5F5F5; border:1px solid #E2E8F0"></div><div class="color-info"><div class="name">BG Secondary</div><div class="hex">#F5F5F5</div><div class="usage">8 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#FFFFFF; border:1px solid #E2E8F0"></div><div class="color-info"><div class="name">Background</div><div class="hex">#FFFFFF</div><div class="usage">249 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#E0F2FE"></div><div class="color-info"><div class="name">Info Light</div><div class="hex">#E0F2FE</div><div class="usage">8 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#F0FDF4"></div><div class="color-info"><div class="name">Success Light</div><div class="hex">#F0FDF4</div><div class="usage">8 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#FFF1F2"></div><div class="color-info"><div class="name">Error Light</div><div class="hex">#FFF1F2</div><div class="usage">8 uses</div></div></div>
+        <div class="color-card"><div class="color-swatch" style="background:#FFF7ED"></div><div class="color-info"><div class="name">Warning Light</div><div class="hex">#FFF7ED</div><div class="usage">8 uses</div></div></div>
+      </div>
+    </section>
+
+    <!-- ======== SEMANTIC TOKENS ======== -->
+    <section id="semantic" class="section">
+      <h2 class="section-title">Semantic Tokens (26)</h2>
+      <p class="section-desc">语义别名，通过 <code>var(--sem-color-*)</code> 引用</p>
+      <div class="sem-grid">
+        <div class="sem-card"><div class="sem-dot" style="background:#0F172A"></div><div><div class="sem-label">Brand Background</div><div class="sem-var">--sem-color-bg-brand</div></div></div>
+        <div class="sem-card"><div class="sem-dot" style="background:#FFFFFF;border:1px solid #E2E8F0"></div><div><div class="sem-label">Primary BG</div><div class="sem-var">--sem-color-bg-primary</div></div></div>
+        <div class="sem-card"><div class="sem-dot" style="background:#F5F5F5"></div><div><div class="sem-label">Secondary BG</div><div class="sem-var">--sem-color-bg-secondary</div></div></div>
+        <div class="sem-card"><div class="sem-dot" style="background:#0F172A"></div><div><div class="sem-label">Interactive Primary</div><div class="sem-var">--sem-color-interactive-primary</div></div></div>
+        <div class="sem-card"><div class="sem-dot" style="background:#1D4ED8"></div><div><div class="sem-label">Interactive Hover</div><div class="sem-var">--sem-color-interactive-primary-hover</div></div></div>
+        <div class="sem-card"><div class="sem-dot" style="background:#FFFFFF;border:1px solid #E2E8F0"></div><div><div class="sem-label">Text Inverse</div><div class="sem-var">--sem-color-text-inverse</div></div></div>
+        <div class="sem-card"><div class="sem-dot" style="background:#737373"></div><div><div class="sem-label">Text Secondary</div><div class="sem-var">--sem-color-text-secondary</div></div></div>
+        <div class="sem-card"><div class="sem-dot" style="background:#737373"></div><div><div class="sem-label">Text Disabled</div><div class="sem-var">--sem-color-text-disabled</div></div></div>
+        <div class="sem-card"><div class="sem-dot" style="background:#0F172A"></div><div><div class="sem-label">Text Link</div><div class="sem-var">--sem-color-text-link</div></div></div>
+        <div class="sem-card"><div class="sem-dot" style="background:#1D4ED8"></div><div><div class="sem-label">Link Hover</div><div class="sem-var">--sem-color-text-link-hover</div></div></div>
+        <div class="sem-card"><div class="sem-dot" style="background:#737373"></div><div><div class="sem-label">Border</div><div class="sem-var">--sem-color-border</div></div></div>
+        <div class="sem-card"><div class="sem-dot" style="background:#0F172A"></div><div><div class="sem-label">Border Focus</div><div class="sem-var">--sem-color-border-focus</div></div></div>
+        <div class="sem-card"><div class="sem-dot" style="background:#B91C1C"></div><div><div class="sem-label">Border Error</div><div class="sem-var">--sem-color-border-error</div></div></div>
+        <div class="sem-card"><div class="sem-dot" style="background:#F0FDF4"></div><div><div class="sem-label">State Success</div><div class="sem-var">--sem-color-state-success</div></div></div>
+        <div class="sem-card"><div class="sem-dot" style="background:#B91C1C"></div><div><div class="sem-label">State Error</div><div class="sem-var">--sem-color-state-error</div></div></div>
+        <div class="sem-card"><div class="sem-dot" style="background:#FFF7ED"></div><div><div class="sem-label">State Warning</div><div class="sem-var">--sem-color-state-warning</div></div></div>
+      </div>
+    </section>
+
+    <!-- ======== TYPOGRAPHY ======== -->
+    <section id="typography" class="section">
+      <h2 class="section-title">Typography</h2>
+      <p class="section-desc">Font: Segoe UI · 39 styles · <code>var(--fdn-typo-style-{N}-*)</code></p>
+      <div class="typo-grid">
+        <div class="typo-row"><div class="typo-sample" style="font-size:34px;font-weight:700;line-height:42px">Display Heading</div><div class="typo-meta">style-19 · 34px / 700</div></div>
+        <div class="typo-row"><div class="typo-sample" style="font-size:32px;font-weight:600;line-height:42px">Page Heading XL</div><div class="typo-meta">style-6 · 32px / 600</div></div>
+        <div class="typo-row"><div class="typo-sample" style="font-size:30px;font-weight:700;line-height:45px">Section Heading 2XL</div><div class="typo-meta">style-25 · 30px / 700</div></div>
+        <div class="typo-row"><div class="typo-sample" style="font-size:24px;font-weight:700;line-height:36px">Section Heading LG</div><div class="typo-meta">style-35 · 24px / 700</div></div>
+        <div class="typo-row"><div class="typo-sample" style="font-size:20px;font-weight:700;line-height:30px">Card Heading Bold</div><div class="typo-meta">style-10 · 20px / 700</div></div>
+        <div class="typo-row"><div class="typo-sample" style="font-size:20px;font-weight:600;line-height:27px">Heading Medium</div><div class="typo-meta">style-5 · 20px / 600</div></div>
+        <div class="typo-row"><div class="typo-sample" style="font-size:16px;font-weight:700;line-height:24px">Body Bold</div><div class="typo-meta">style-16 · 16px / 700</div></div>
+        <div class="typo-row"><div class="typo-sample" style="font-size:16px;font-weight:600;line-height:28px">Body Semibold</div><div class="typo-meta">style-1 · 16px / 600</div></div>
+        <div class="typo-row"><div class="typo-sample" style="font-size:16px;font-weight:400;line-height:24px">Body Regular</div><div class="typo-meta">style-34 · 16px / 400</div></div>
+        <div class="typo-row"><div class="typo-sample" style="font-size:14px;font-weight:700;line-height:22px">Label Bold</div><div class="typo-meta">style-11 · 14px / 700</div></div>
+        <div class="typo-row"><div class="typo-sample" style="font-size:14px;font-weight:600;line-height:21px">Body Small Semi</div><div class="typo-meta">style-13 · 14px / 600</div></div>
+        <div class="typo-row"><div class="typo-sample" style="font-size:14px;font-weight:400;line-height:20px">Body Small</div><div class="typo-meta">style-12 · 14px / 400</div></div>
+        <div class="typo-row"><div class="typo-sample" style="font-size:12px;font-weight:600;line-height:20px">Caption Semibold</div><div class="typo-meta">style-18 · 12px / 600</div></div>
+        <div class="typo-row"><div class="typo-sample" style="font-size:12px;font-weight:400;line-height:20px">Caption Regular</div><div class="typo-meta">style-2 · 12px / 400</div></div>
+        <div class="typo-row"><div class="typo-sample" style="font-size:9px;font-weight:400;line-height:12px">Micro Text</div><div class="typo-meta">style-8 · 9px / 400</div></div>
+      </div>
+    </section>
+
+    <!-- ======== SPACING & RADIUS & SHADOW ======== -->
+    <section id="spacing" class="section">
+      <h2 class="section-title">Spacing Scale</h2>
+      <p class="section-desc"><code>var(--fdn-spacing-space-*)</code></p>
+      <div class="spacing-grid">
+        <div class="spacing-item"><div class="spacing-bar" style="width:4px"></div><div class="spacing-val">4</div></div>
+        <div class="spacing-item"><div class="spacing-bar" style="width:8px"></div><div class="spacing-val">8</div></div>
+        <div class="spacing-item"><div class="spacing-bar" style="width:10px"></div><div class="spacing-val">10</div></div>
+        <div class="spacing-item"><div class="spacing-bar" style="width:12px"></div><div class="spacing-val">12</div></div>
+        <div class="spacing-item"><div class="spacing-bar" style="width:16px"></div><div class="spacing-val">16</div></div>
+        <div class="spacing-item"><div class="spacing-bar" style="width:20px"></div><div class="spacing-val">20</div></div>
+        <div class="spacing-item"><div class="spacing-bar" style="width:24px"></div><div class="spacing-val">24</div></div>
+        <div class="spacing-item"><div class="spacing-bar" style="width:28px"></div><div class="spacing-val">28</div></div>
+        <div class="spacing-item"><div class="spacing-bar" style="width:60px"></div><div class="spacing-val">80</div></div>
+      </div>
+
+      <h3 style="margin-top:32px;margin-bottom:12px;font-size:1.1rem">Border Radius</h3>
+      <div class="radius-grid">
+        <div class="radius-item"><div class="radius-box" style="border-radius:4px"></div><div class="radius-val">4px</div></div>
+        <div class="radius-item"><div class="radius-box" style="border-radius:5px"></div><div class="radius-val">5px</div></div>
+        <div class="radius-item"><div class="radius-box" style="border-radius:8px"></div><div class="radius-val">8px</div></div>
+        <div class="radius-item"><div class="radius-box" style="border-radius:28px"></div><div class="radius-val">100px</div></div>
+        <div class="radius-item"><div class="radius-box" style="border-radius:50%"></div><div class="radius-val">128px</div></div>
+      </div>
+
+      <h3 style="margin-top:32px;margin-bottom:12px;font-size:1.1rem">Shadows</h3>
+      <div class="shadow-grid">
+        <div class="shadow-box" style="box-shadow:0px 1px 3px 0px rgba(0,0,0,0.12)">S-1</div>
+        <div class="shadow-box" style="box-shadow:0px 4px 4px 0px rgba(0,0,0,0.25)">S-2</div>
+        <div class="shadow-box" style="box-shadow:0px 1px 1px 0px rgba(0,0,0,0.14)">S-3</div>
+        <div class="shadow-box" style="box-shadow:0px 2px 1px -1px rgba(0,0,0,0.2)">S-4</div>
+        <div class="shadow-box" style="box-shadow:-2px 0px 6px 0px rgba(0,0,0,0.1)">S-5</div>
+      </div>
+    </section>
+
+    <!-- ======== BUTTONS ======== -->
+    <section id="buttons" class="section">
+      <h2 class="section-title">Button</h2>
+      <div class="demo-row">
+        <span class="demo-label">Filled</span>
+        <button class="cake-btn cake-btn--filled">Default</button>
+        <button class="cake-btn cake-btn--filled success">Success</button>
+        <button class="cake-btn cake-btn--filled error">Error</button>
+        <button class="cake-btn cake-btn--filled" disabled>Disabled</button>
+      </div>
+      <div class="demo-row">
+        <span class="demo-label">Outlined</span>
+        <button class="cake-btn cake-btn--outlined">Default</button>
+        <button class="cake-btn cake-btn--outlined" disabled>Disabled</button>
+      </div>
+      <div class="demo-row">
+        <span class="demo-label">Text</span>
+        <button class="cake-btn cake-btn--text">Text Button</button>
+      </div>
+      <div class="demo-row">
+        <span class="demo-label">Small</span>
+        <button class="cake-btn cake-btn--filled cake-btn--sm">Small Filled</button>
+        <button class="cake-btn cake-btn--outlined cake-btn--sm">Small Outlined</button>
+      </div>
+    </section>
+
+    <!-- ======== CONTROLS ======== -->
+    <section id="controls" class="section">
+      <h2 class="section-title">Controls</h2>
+      <div class="demo-row">
+        <span class="demo-label">Checkbox</span>
+        <label class="cake-check"><span class="cake-check-box"></span> Unchecked</label>
+        <label class="cake-check"><span class="cake-check-box checked"></span> Checked</label>
+        <label class="cake-check"><span class="cake-check-box indeterminate"></span> Indeterminate</label>
+        <label class="cake-check"><span class="cake-check-box disabled"></span> Disabled</label>
+      </div>
+      <div class="demo-row">
+        <span class="demo-label">Radio</span>
+        <label class="cake-check"><span class="cake-radio-dot"></span> Unchecked</label>
+        <label class="cake-check"><span class="cake-radio-dot checked"></span> Checked</label>
+      </div>
+      <div class="demo-row">
+        <span class="demo-label">Toggle</span>
+        <div class="cake-toggle"></div>
+        <div class="cake-toggle on"></div>
+      </div>
+    </section>
+
+    <!-- ======== INPUTS ======== -->
+    <section id="inputs" class="section">
+      <h2 class="section-title">Text Field</h2>
+      <div class="demo-row">
+        <span class="demo-label">Default</span>
+        <div><input class="cake-input" placeholder="Enter text..."></div>
+      </div>
+      <div class="demo-row">
+        <span class="demo-label">Error</span>
+        <div>
+          <input class="cake-input error" value="Invalid email">
+          <div class="input-caption error">Please enter a valid email address</div>
+        </div>
+      </div>
+      <div class="demo-row">
+        <span class="demo-label">Disabled</span>
+        <div><input class="cake-input" disabled value="Disabled field"></div>
+      </div>
+    </section>
+
+    <!-- ======== LABELS ======== -->
+    <section id="labels" class="section">
+      <h2 class="section-title">Label / Tag</h2>
+      <div class="demo-row">
+        <span class="demo-label">Blue</span>
+        <span class="cake-label cake-label--solid">Solid</span>
+        <span class="cake-label cake-label--soft">Soft</span>
+        <span class="cake-label cake-label--outline">Outline</span>
+      </div>
+      <div class="demo-row">
+        <span class="demo-label">Green</span>
+        <span class="cake-label cake-label--green cake-label--solid">Success</span>
+        <span class="cake-label cake-label--green cake-label--soft">Success</span>
+      </div>
+      <div class="demo-row">
+        <span class="demo-label">Red</span>
+        <span class="cake-label cake-label--red cake-label--solid">Error</span>
+        <span class="cake-label cake-label--red cake-label--soft">Error</span>
+      </div>
+      <div class="demo-row">
+        <span class="demo-label">Purple</span>
+        <span class="cake-label cake-label--purple cake-label--solid">Info</span>
+        <span class="cake-label cake-label--purple cake-label--soft">Info</span>
+      </div>
+      <div class="demo-row">
+        <span class="demo-label">Orange</span>
+        <span class="cake-label cake-label--orange cake-label--solid">Warning</span>
+        <span class="cake-label cake-label--orange cake-label--soft">Warning</span>
+      </div>
+    </section>
+
+    <!-- ======== CARDS ======== -->
+    <section id="cards" class="section">
+      <h2 class="section-title">Card</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px">
+        <div class="cake-card">
+          <h3>Card Title</h3>
+          <p>This card uses --fdn-radius-radius-8, --fdn-shadow-shadow-1, and --fdn-spacing-space-16 padding.</p>
+        </div>
+        <div class="cake-card">
+          <h3>Hoverable Card</h3>
+          <p>Hover to see the shadow-2 elevation effect. All styles use CSS variables.</p>
+        </div>
+        <div class="cake-card">
+          <h3>Data Card</h3>
+          <p style="font-size:28px;font-weight:700;color:var(--fdn-color-palette-1d4ed8);margin:8px 0">2,717</p>
+          <p>Total component variants in Figma</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== FEEDBACK ======== -->
+    <section id="feedback" class="section">
+      <h2 class="section-title">Feedback</h2>
+
+      <h3 style="margin-bottom:12px;font-size:1rem">Toast / Message</h3>
+      <div style="display:grid;gap:12px;max-width:420px;margin-bottom:24px">
+        <div class="cake-toast cake-toast--info"><span class="icon">ℹ️</span><div><strong>Info</strong>System update available.</div></div>
+        <div class="cake-toast cake-toast--success"><span class="icon">✅</span><div><strong>Success</strong>Record saved successfully.</div></div>
+        <div class="cake-toast cake-toast--error"><span class="icon">❌</span><div><strong>Error</strong>Failed to save changes.</div></div>
+        <div class="cake-toast cake-toast--warning"><span class="icon">⚠️</span><div><strong>Warning</strong>Disk space running low.</div></div>
+      </div>
+
+      <h3 style="margin-bottom:12px;font-size:1rem">Tooltip</h3>
+      <div class="demo-row">
+        <div class="tooltip-wrap">
+          <button class="cake-btn cake-btn--outlined">Hover me</button>
+          <div class="tooltip-box">This is a Cake tooltip</div>
+        </div>
+      </div>
+
+      <h3 style="margin:24px 0 12px;font-size:1rem">Badge</h3>
+      <div class="demo-row">
+        <div class="badge-wrap">
+          <button class="cake-btn cake-btn--outlined" style="padding:8px 16px">Notifications</button>
+          <span class="cake-badge cake-badge--error">5</span>
+        </div>
+        <div class="badge-wrap">
+          <button class="cake-btn cake-btn--outlined" style="padding:8px 16px">Messages</button>
+          <span class="cake-badge cake-badge--info">12</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== NAVIGATION ======== -->
+    <section id="navigation" class="section">
+      <h2 class="section-title">Navigation</h2>
+
+      <h3 style="margin-bottom:12px;font-size:1rem">Breadcrumb</h3>
+      <div class="cake-breadcrumb" style="margin-bottom:24px">
+        <a href="#">Home</a><span class="sep">/</span>
+        <a href="#">Products</a><span class="sep">/</span>
+        <a href="#">Laptops</a><span class="sep">/</span>
+        <span class="current">ThinkPad X1</span>
+      </div>
+
+      <h3 style="margin-bottom:12px;font-size:1rem">Tabs</h3>
+      <div class="cake-tabs" style="margin-bottom:24px">
+        <button class="cake-tab active">Overview</button>
+        <button class="cake-tab">Specifications</button>
+        <button class="cake-tab">Reviews</button>
+        <button class="cake-tab" style="color:var(--sem-color-text-disabled);cursor:not-allowed">Discontinued</button>
+      </div>
+
+      <h3 style="margin-bottom:12px;font-size:1rem">Pagination</h3>
+      <div class="cake-pagination" style="margin-bottom:24px">
+        <span class="cake-page disabled">&lt;</span>
+        <span class="cake-page active">1</span>
+        <span class="cake-page">2</span>
+        <span class="cake-page">3</span>
+        <span class="cake-page">...</span>
+        <span class="cake-page">10</span>
+        <span class="cake-page">&gt;</span>
+      </div>
+
+      <h3 style="margin-bottom:12px;font-size:1rem">Stepper</h3>
+      <div class="cake-stepper" style="margin-bottom:24px">
+        <div class="step-item"><div class="step-circle done">✓</div><span class="step-label">Account</span></div>
+        <div class="step-line done"></div>
+        <div class="step-item"><div class="step-circle current">2</div><span class="step-label">Profile</span></div>
+        <div class="step-line todo"></div>
+        <div class="step-item"><div class="step-circle todo">3</div><span class="step-label">Review</span></div>
+      </div>
+
+      <h3 style="margin-bottom:12px;font-size:1rem">Accordion</h3>
+      <div class="cake-accordion">
+        <div class="acc-item"><div class="acc-header">What is the Cake Design System? <span>▾</span></div><div class="acc-body">Cake is Lenovo's enterprise design system with 29 components, 260+ tokens, and multi-framework support.</div></div>
+        <div class="acc-item"><div class="acc-header">How do I install this skill? <span>▸</span></div></div>
+        <div class="acc-item"><div class="acc-header">Which AI tools are supported? <span>▸</span></div></div>
+      </div>
+    </section>
+
+    <!-- ======== TABLE ======== -->
+    <section id="table" class="section">
+      <h2 class="section-title">Table</h2>
+      <div style="border-radius:var(--fdn-radius-radius-8);overflow:hidden;box-shadow:var(--fdn-shadow-shadow-1)">
+        <table class="cake-table">
+          <thead>
+            <tr><th>Component</th><th>Category</th><th>Variants</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Button</td><td>Controls</td><td>40+</td><td><span class="cake-label cake-label--green cake-label--soft">Ready</span></td></tr>
+            <tr><td>Modal</td><td>Feedback</td><td>6</td><td><span class="cake-label cake-label--green cake-label--soft">Ready</span></td></tr>
+            <tr><td>Table</td><td>Data Display</td><td>12+</td><td><span class="cake-label cake-label--green cake-label--soft">Ready</span></td></tr>
+            <tr><td>Calendar</td><td>Data Input</td><td>8</td><td><span class="cake-label cake-label--soft">In Progress</span></td></tr>
+            <tr><td>Navbar</td><td>Navigation</td><td>10+</td><td><span class="cake-label cake-label--green cake-label--soft">Ready</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <h3 style="font-size:18px;margin-bottom:8px">🍰 Cake Design System Skill</h3>
+    <p>Lenovo Enterprise UI · 29 Components · 260+ Tokens · React / Vue / HTML</p>
+    <p style="margin-top:12px;font-size:12px;opacity:0.4">Built with Cake tokens — zero hard-coded values</p>
+  </footer>
+
+  <!-- ======== Sticky nav highlighting ======== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('.nav a');
+      const sections = [...links].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            links.forEach(l => l.classList.remove('active'));
+            const link = document.querySelector(`.nav a[href="#${e.target.id}"]`);
+            if (link) link.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-80px 0px -60% 0px' });
+      sections.forEach(s => obs.observe(s));
+    });
+  </script>
+</body>
+</html>

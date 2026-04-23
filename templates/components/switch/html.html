@@ -1,0 +1,24 @@
+<!-- Cake Design System — Switch (Segmented) -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Switch</title>
+<style>
+.cake-switch {
+  display: inline-flex; border-radius: var(--fdn-radius-radius-100);
+  background: var(--sem-color-bg-secondary); padding: 2px; gap: 2px;
+}
+.cake-switch--disabled { opacity: 0.5; pointer-events: none; }
+.cake-switch__item {
+  padding: var(--fdn-spacing-space-4) var(--fdn-spacing-space-12);
+  border-radius: var(--fdn-radius-radius-100); border: none; cursor: pointer;
+  background: transparent; color: var(--fdn-color-palette-0f172a);
+  transition: background 0.2s, color 0.2s;
+}
+.cake-switch__item--active { background: var(--sem-color-bg-brand); color: var(--sem-color-text-inverse); }
+</style></head>
+<body>
+  <div class="cake-switch">
+    <button class="cake-switch__item cake-switch__item--active">Option A</button>
+    <button class="cake-switch__item">Option B</button>
+    <button class="cake-switch__item">Option C</button>
+  </div>
+</body></html>

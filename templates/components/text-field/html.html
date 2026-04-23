@@ -1,0 +1,32 @@
+<!-- Cake Design System — Text Field -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Text Field</title>
+<style>
+.cake-field { width: 280px; margin-bottom: 16px; }
+.cake-field__label { display: block; margin-bottom: var(--fdn-spacing-space-4); }
+.cake-field__input {
+  width: 100%; box-sizing: border-box; border-radius: var(--fdn-radius-radius-4);
+  border: 1px solid var(--sem-color-border); background: var(--sem-color-bg-primary); outline: none;
+  padding: var(--fdn-spacing-space-8) var(--fdn-spacing-space-12);
+}
+.cake-field__input::placeholder { color: var(--sem-color-text-secondary); }
+.cake-field__input:focus { border-color: var(--sem-color-border-focus); }
+.cake-field__input--error { border-color: var(--sem-color-border-error); }
+.cake-field__input--disabled { background: var(--sem-color-bg-disabled); color: var(--sem-color-text-disabled); border-color: var(--sem-color-border-disabled); }
+.cake-field__error { color: var(--sem-color-state-error); font-size: 12px; margin-top: var(--fdn-spacing-space-4); display: block; }
+</style></head>
+<body>
+  <div class="cake-field">
+    <label class="cake-field__label">Email</label>
+    <input class="cake-field__input" placeholder="Enter email..." />
+  </div>
+  <div class="cake-field">
+    <label class="cake-field__label">Error State</label>
+    <input class="cake-field__input cake-field__input--error" value="bad-email" />
+    <span class="cake-field__error">Invalid email address</span>
+  </div>
+  <div class="cake-field">
+    <label class="cake-field__label">Disabled</label>
+    <input class="cake-field__input cake-field__input--disabled" value="Disabled" disabled />
+  </div>
+</body></html>

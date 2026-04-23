@@ -1,0 +1,25 @@
+<!-- Cake Design System — Stepper -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Stepper</title>
+<style>
+.cake-stepper { display: flex; align-items: center; gap: var(--fdn-spacing-space-4); }
+.cake-stepper__step { display: flex; align-items: center; gap: var(--fdn-spacing-space-4); }
+.cake-stepper__circle {
+  width: 28px; height: 28px; border-radius: var(--fdn-radius-radius-128); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 13px;
+  background: var(--sem-color-bg-secondary); color: var(--sem-color-text-secondary);
+}
+.cake-stepper__circle--active { background: var(--sem-color-interactive-primary); color: var(--sem-color-text-inverse); }
+.cake-stepper__line { flex: 1; height: 2px; background: var(--sem-color-border); min-width: 24px; }
+.cake-stepper__line--done { background: var(--sem-color-interactive-primary); }
+.cake-stepper__label--muted { color: var(--sem-color-text-secondary); font-size: 13px; }
+</style></head>
+<body>
+  <div class="cake-stepper">
+    <div class="cake-stepper__step"><span class="cake-stepper__circle cake-stepper__circle--active">✓</span><span>Cart</span></div>
+    <div class="cake-stepper__line cake-stepper__line--done"></div>
+    <div class="cake-stepper__step"><span class="cake-stepper__circle cake-stepper__circle--active">2</span><span>Shipping</span></div>
+    <div class="cake-stepper__line"></div>
+    <div class="cake-stepper__step"><span class="cake-stepper__circle">3</span><span class="cake-stepper__label--muted">Payment</span></div>
+  </div>
+</body></html>

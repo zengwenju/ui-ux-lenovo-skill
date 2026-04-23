@@ -1,0 +1,18 @@
+<!-- Cake Design System — Uploader -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Uploader</title>
+<style>
+.cake-uploader__zone {
+  border: 2px dashed var(--sem-color-border); border-radius: var(--fdn-radius-radius-4);
+  background: var(--sem-color-bg-primary); padding: var(--fdn-spacing-space-24);
+  text-align: center; cursor: pointer; transition: border-color 0.2s; max-width: 320px;
+}
+.cake-uploader__zone:hover { border-color: var(--sem-color-border-focus); }
+.cake-uploader__file--done { color: var(--sem-color-state-success-light); padding: var(--fdn-spacing-space-4); }
+.cake-uploader__file--error { color: var(--sem-color-state-error); padding: var(--fdn-spacing-space-4); }
+</style></head>
+<body>
+  <div class="cake-uploader__zone"><p>Drop files here or click to upload</p></div>
+  <div class="cake-uploader__file--done">photo.jpg ✓</div>
+  <div class="cake-uploader__file--error">doc.pdf ✗</div>
+</body></html>

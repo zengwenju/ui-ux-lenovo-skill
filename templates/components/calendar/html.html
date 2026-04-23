@@ -1,0 +1,24 @@
+<!-- Cake Design System — Calendar -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Calendar</title>
+<style>
+.cake-cal { padding: var(--fdn-spacing-space-16); max-width: 300px; }
+.cake-cal__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--fdn-spacing-space-8); }
+.cake-cal__grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; text-align: center; }
+.cake-cal__day-name { font-weight: 600; padding: var(--fdn-spacing-space-4); }
+.cake-cal__cell { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--fdn-radius-radius-4); cursor: pointer; transition: background 0.15s; }
+.cake-cal__cell:hover { background: var(--fdn-color-palette-f1f5f9); }
+.cake-cal__cell--selected { background: var(--sem-color-bg-brand); color: var(--sem-color-text-inverse); }
+.cake-cal__cell--today { border: 1px solid var(--sem-color-interactive-primary); }
+</style></head>
+<body>
+  <div class="cake-cal">
+    <div class="cake-cal__header"><button>&lt;</button><strong>April 2026</strong><button>&gt;</button></div>
+    <div class="cake-cal__grid">
+      <div class="cake-cal__day-name">Su</div><div class="cake-cal__day-name">Mo</div><div class="cake-cal__day-name">Tu</div><div class="cake-cal__day-name">We</div><div class="cake-cal__day-name">Th</div><div class="cake-cal__day-name">Fr</div><div class="cake-cal__day-name">Sa</div>
+      <div class="cake-cal__cell">1</div><div class="cake-cal__cell">2</div><div class="cake-cal__cell">3</div>
+      <div class="cake-cal__cell cake-cal__cell--selected">15</div>
+      <div class="cake-cal__cell cake-cal__cell--today">23</div>
+    </div>
+  </div>
+</body></html>

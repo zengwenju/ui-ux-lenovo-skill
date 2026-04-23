@@ -1,0 +1,27 @@
+<!-- Cake Design System — Checkbox -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Checkbox</title>
+<style>
+.cake-checkbox { display: inline-flex; align-items: center; gap: var(--fdn-spacing-space-8); cursor: pointer; }
+.cake-checkbox--disabled { color: var(--sem-color-text-disabled); cursor: not-allowed; }
+.cake-checkbox__box {
+  width: 18px; height: 18px; border-radius: var(--fdn-radius-radius-4); flex-shrink: 0;
+  border: 2px solid var(--sem-color-border); background: var(--sem-color-bg-primary);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.cake-checkbox__box--checked { background: var(--sem-color-interactive-primary); border-color: var(--sem-color-interactive-primary); }
+.cake-checkbox__box--disabled { background: var(--sem-color-bg-disabled); border-color: var(--sem-color-border-disabled); }
+</style></head>
+<body>
+  <label class="cake-checkbox">
+    <span class="cake-checkbox__box"></span><span>Unchecked</span>
+  </label><br><br>
+  <label class="cake-checkbox">
+    <span class="cake-checkbox__box cake-checkbox__box--checked">
+      <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6l3 3 5-5" stroke="var(--sem-color-text-inverse)" stroke-width="2" fill="none"/></svg>
+    </span><span>Checked</span>
+  </label><br><br>
+  <label class="cake-checkbox cake-checkbox--disabled">
+    <span class="cake-checkbox__box cake-checkbox__box--disabled"></span><span>Disabled</span>
+  </label>
+</body></html>

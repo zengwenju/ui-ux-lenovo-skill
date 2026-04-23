@@ -1,0 +1,19 @@
+<!-- Cake Design System — Label (Tag) -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Label</title>
+<style>
+.cake-label {
+  display: inline-flex; align-items: center; gap: var(--fdn-spacing-space-4);
+  padding: var(--fdn-spacing-space-4) var(--fdn-spacing-space-8);
+  border-radius: var(--fdn-radius-radius-4); font-size: 12px; line-height: 1;
+}
+.cake-label--solid { background: var(--fdn-color-palette-1e3a8a); color: var(--sem-color-text-inverse); }
+.cake-label--soft { background: var(--fdn-color-palette-e0f2fe); color: var(--fdn-color-palette-1e3a8a); }
+.cake-label--outline { background: transparent; border: 1px solid var(--fdn-color-palette-1e3a8a); color: var(--fdn-color-palette-1e3a8a); }
+.cake-label__close { background: none; border: none; cursor: pointer; padding: 0; color: inherit; font-size: 14px; }
+</style></head>
+<body>
+  <span class="cake-label cake-label--solid">Solid <button class="cake-label__close">&times;</button></span>
+  <span class="cake-label cake-label--soft">Soft</span>
+  <span class="cake-label cake-label--outline">Outline</span>
+</body></html>

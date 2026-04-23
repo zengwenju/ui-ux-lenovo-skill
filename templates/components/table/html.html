@@ -1,0 +1,20 @@
+<!-- Cake Design System — Table -->
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><title>Cake Table</title>
+<style>
+.cake-table { width: 100%; border-collapse: collapse; background: var(--sem-color-bg-primary); }
+.cake-table th { background: var(--sem-color-bg-secondary); padding: var(--fdn-spacing-space-12) var(--fdn-spacing-space-16); text-align: left; border-bottom: 1px solid var(--fdn-color-palette-e2e8f0); }
+.cake-table td { padding: var(--fdn-spacing-space-12) var(--fdn-spacing-space-16); border-bottom: 1px solid var(--fdn-color-palette-e2e8f0); }
+.cake-table tr:hover { background: var(--fdn-color-palette-f1f5f9); }
+.cake-table tr.selected { background: var(--fdn-color-palette-dbeafe); }
+</style></head>
+<body>
+  <table class="cake-table">
+    <thead><tr><th>Name</th><th>Email</th><th>Role</th></tr></thead>
+    <tbody>
+      <tr><td>Alice</td><td>alice@example.com</td><td>Admin</td></tr>
+      <tr class="selected"><td>Bob</td><td>bob@example.com</td><td>User</td></tr>
+      <tr><td>Carol</td><td>carol@example.com</td><td>Editor</td></tr>
+    </tbody>
+  </table>
+</body></html>
